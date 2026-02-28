@@ -6,8 +6,10 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex, nofollow">
 <title>PROJECT SWELL // ROADMAP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
 
   :root {
     --neon-pink: #ff2d95;
@@ -62,7 +64,7 @@
       transparent 1px,
       transparent 3px
     );
-    z-index: 9999;
+    z-index: 2;
     pointer-events: none;
   }
 
@@ -847,7 +849,7 @@
 </div>
 
 <!-- Main Content -->
-<div class="container" id="mainContent" style="display:none">
+<div class="container" id="mainContent">
 
   <!-- Header -->
   <div class="header">
@@ -1211,34 +1213,41 @@
 
 <script>
   // Password gate (matches existing /swell password)
-  const gate = document.getElementById('gate');
-  const passInput = document.getElementById('passInput');
-  const passError = document.getElementById('passError');
-  const mainContent = document.getElementById('mainContent');
+  (function() {
+    const gate = document.getElementById('gate');
+    const passInput = document.getElementById('passInput');
+    const passError = document.getElementById('passError');
 
-  // Check stored access
-  if (sessionStorage.getItem('swell_access') === 'granted') {
-    gate.classList.add('hidden');
-    mainContent.style.display = 'block';
-  }
-
-  passInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      if (passInput.value === 'swell') {
-        sessionStorage.setItem('swell_access', 'granted');
-        gate.classList.add('hidden');
-        mainContent.style.display = 'block';
-      } else {
-        passError.classList.add('visible');
-        passInput.value = '';
-        passInput.style.borderColor = 'var(--neon-pink)';
-        setTimeout(() => {
-          passError.classList.remove('visible');
-          passInput.style.borderColor = '';
-        }, 2000);
-      }
+    function dismissGate() {
+      gate.style.transition = 'opacity 0.5s ease';
+      gate.style.opacity = '0';
+      setTimeout(function() { gate.style.display = 'none'; }, 500);
     }
-  });
+
+    // Check stored access
+    if (sessionStorage.getItem('swell_access') === 'granted') {
+      gate.style.display = 'none';
+    }
+
+    passInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        if (passInput.value === 'swell') {
+          sessionStorage.setItem('swell_access', 'granted');
+          dismissGate();
+        } else {
+          passError.classList.add('visible');
+          passInput.value = '';
+          passInput.style.borderColor = 'var(--neon-pink)';
+          setTimeout(function() {
+            passError.classList.remove('visible');
+            passInput.style.borderColor = '';
+          }, 2000);
+        }
+      }
+    });
+
+    passInput.focus();
+  })();
 
   // Phase accordion
   function togglePhase(n) {
