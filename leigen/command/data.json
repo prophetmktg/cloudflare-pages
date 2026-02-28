@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "targetDate": "2026-04-10",
+    "lastUpdated": "2026-02-28"
+  },
+  "goals": [
+    { "id": 1, "text": "System stable and reliable", "status": "in_progress", "detail": "Bugs eradicated, trades firing and managed properly, data collected and shared, no silent failures." },
+    { "id": 2, "text": "Aquila: Live & Governing", "status": "in_progress", "detail": "All strategies regime-aware, all trades tagged, intelligence layer accumulating." },
+    { "id": 3, "text": "Atlas: Dialed In", "status": "not_started", "detail": "Confluence zones generating on NQ, historically validated, paper trading live with regime filtering." },
+    { "id": 4, "text": "Combine: Trusted", "status": "in_progress", "detail": "Engine, data, metrics, and promotion gates verified and reliable. No manual double-checking needed." },
+    { "id": 5, "text": "1+ new strategy at PROMOTE or live", "status": "not_started", "detail": "At least one additional strategy has passed all gates or is deployed on a prop account." },
+    { "id": 6, "text": "Bob and Adam run the full pipeline", "status": "in_progress", "detail": "Either researcher can take a strategy from idea to deployed ATS without blocking on Vash." },
+    { "id": 7, "text": "Centurion: Defined with roadmap", "status": "not_started", "detail": "Clear vision, phasing, dependencies, and timeline. Team aligned." },
+    { "id": 8, "text": "Q2 vision and goals set", "status": "not_started", "detail": "Goals for June 30 defined, including expansion targets and next milestones for all projects." }
+  ],
+  "projects": [
+    {
+      "codename": "AQUILA",
+      "formerName": "Regime Engine",
+      "description": "Cross-asset regime classification engine. Tells every strategy what kind of market environment we're in before any trade fires. Governs position sizing, style, and risk across the entire fleet.",
+      "milestone": "Live & Governing",
+      "progress": 75,
+      "risk": "Low",
+      "riskNote": "Engineering work, no research unknowns",
+      "color": "#ff00ff",
+      "todos": [
+        { "text": "Wire regime into remaining 3 GEX strategies", "done": false },
+        { "text": "ES/NQ divergence detection (intraday modifier)", "done": false },
+        { "text": "Verify all trades tagged with regime state vector", "done": false },
+        { "text": "Confirm Telegram alerts firing on regime transitions", "done": false },
+        { "text": "Dashboard regime panel verified and accurate", "done": false }
+      ]
+    },
+    {
+      "codename": "ATLAS",
+      "formerName": "Hot Zones",
+      "description": "Confluence-based price level engine. Identifies zones where multiple independent market forces overlap, creating high-probability reaction points. Uses KDE scoring across 20 level generators.",
+      "milestone": "Dialed In",
+      "progress": 25,
+      "risk": "Medium",
+      "riskNote": "Calibration iteration required, not thesis risk",
+      "color": "#00ffff",
+      "todos": [
+        { "text": "Build KDE confluence scorer (~200 lines, scipy)", "done": false },
+        { "text": "Run 5-year NQ historical validation", "done": false },
+        { "text": "Tune bandwidth and family weights", "done": false },
+        { "text": "Deploy Mode B paper trading with regime filtering", "done": false },
+        { "text": "Team can see zones on dashboard before each session", "done": false }
+      ]
+    },
+    {
+      "codename": "COMBINE",
+      "formerName": "Paper Trading Engine",
+      "description": "The validation and trust layer. Ensures every strategy is tested against real execution constraints before live capital. Parity checks, promotion gates, and metrics that the team can trust without caveats.",
+      "milestone": "Trusted",
+      "progress": 80,
+      "risk": "Low",
+      "riskNote": "Verification work, not construction",
+      "color": "#00ff9f",
+      "todos": [
+        { "text": "Verify parity across all active strategies", "done": false },
+        { "text": "Audit R2 data sync reliability (no silent failures)", "done": false },
+        { "text": "Validate promotion gate accuracy (7 gates)", "done": false },
+        { "text": "Confirm crash recovery works cleanly", "done": false },
+        { "text": "Audit metrics honesty (commissions, slippage vs budget)", "done": false }
+      ]
+    },
+    {
+      "codename": "CENTURION",
+      "formerName": "Adaptive Trader Vision",
+      "description": "The endgame: a fleet of adaptive traders that read the full market environment, select the right play from a finite playbook, and learn from outcomes. Context-first, personality-driven, collectively intelligent.",
+      "milestone": "Defined",
+      "progress": 5,
+      "risk": "Low",
+      "riskNote": "Definition phase only, no build risk yet",
+      "color": "#ff6600",
+      "todos": [
+        { "text": "Draft vision document for the team", "done": false },
+        { "text": "Define phases and dependencies clearly", "done": false },
+        { "text": "Create timeline with milestones", "done": false },
+        { "text": "Align team on roadmap and priorities", "done": false }
+      ]
+    }
+  ],
+  "teamCapability": {
+    "title": "Pipeline Independence",
+    "description": "Either researcher can take a strategy from idea to deployed ATS. Vash focuses on architecture, R&D, and expanding the platform's capabilities.",
+    "pipeline": [
+      { "stage": "Research", "bob": true, "adam": true, "vash": true },
+      { "stage": "Validation", "bob": true, "adam": true, "vash": true },
+      { "stage": "Paper", "bob": true, "adam": false, "vash": true },
+      { "stage": "Live", "bob": true, "adam": false, "vash": true }
+    ]
+  },
+  "infrastructure": [
+    { "name": "R2 Data Sync", "status": "HEALTHY" },
+    { "name": "GEX Capture", "detail": "QQQ / SPX / TLT", "status": "HEALTHY" },
+    { "name": "Tick Data", "detail": "NQ / ES", "status": "HEALTHY" },
+    { "name": "Dashboard Publish", "status": "HEALTHY" },
+    { "name": "Macro Data", "detail": "FRED / COT", "status": "HEALTHY" }
+  ],
+  "pipeline": {
+    "research": 2,
+    "validation": 1,
+    "paper": 7,
+    "live": 1
+  }
+}
