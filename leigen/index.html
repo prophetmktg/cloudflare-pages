@@ -576,6 +576,145 @@
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* ---- MOBILE RESPONSIVE ---- */
+  @media (max-width: 768px) {
+    .container {
+      padding: 16px 12px;
+    }
+
+    /* Header */
+    .header {
+      padding: 30px 10px 25px;
+    }
+    .header h1 {
+      font-size: 22px;
+      letter-spacing: 3px;
+    }
+    .header .subtitle {
+      font-size: 7px;
+      letter-spacing: 2px;
+    }
+    .header .tagline {
+      font-size: 13px;
+    }
+
+    /* Section titles */
+    .section-title {
+      font-size: 14px;
+      letter-spacing: 1px;
+      padding: 10px 12px;
+      margin: 40px 0 10px;
+    }
+    .section-desc {
+      font-size: 13px;
+    }
+
+    /* Layer stack — hide viz canvases, stack vertically */
+    .layer {
+      padding: 16px 14px;
+      flex-wrap: wrap;
+      min-height: auto;
+      gap: 10px;
+    }
+    .layer-number {
+      font-size: 22px;
+      min-width: 40px;
+    }
+    .layer-content h3 {
+      font-size: 12px;
+    }
+    .layer-content p {
+      font-size: 12px;
+    }
+    .layer-viz {
+      display: none;
+    }
+
+    /* Fleet roster — single column */
+    .fleet-grid {
+      grid-template-columns: 1fr;
+    }
+    .trader-card {
+      padding: 16px;
+    }
+    .trader-info h3 {
+      font-size: 14px;
+    }
+
+    /* Collective intelligence */
+    .intel-section {
+      padding: 20px 16px;
+    }
+    .intel-quote {
+      font-size: 18px;
+    }
+    .intel-quote::before {
+      font-size: 40px;
+      top: -14px;
+      left: -6px;
+    }
+    .intel-card {
+      padding: 14px;
+    }
+
+    /* GEX matrix — horizontal scroll */
+    .gex-matrix {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .gex-matrix table {
+      min-width: 500px;
+      font-size: 11px;
+    }
+    .gex-matrix th {
+      font-size: 6px;
+      padding: 8px 6px;
+    }
+    .gex-matrix td {
+      padding: 10px 8px;
+    }
+
+    /* Macro strip — wrap to 2x2 grid */
+    .macro-strip {
+      flex-wrap: wrap;
+    }
+    .macro-state {
+      flex: 1 1 45%;
+      padding: 12px 8px;
+      border-bottom: 1px solid #222;
+    }
+    .macro-state .macro-icon {
+      font-size: 14px;
+    }
+    .macro-state .macro-name {
+      font-size: 9px;
+    }
+    .macro-state .macro-desc {
+      font-size: 9px;
+    }
+
+    /* Aquila compact */
+    .aquila-compact {
+      padding: 16px;
+    }
+    .aquila-compact .aquila-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .aquila-compact .aquila-row h3 {
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .footer {
+      font-size: 6px;
+      padding: 30px 10px;
+      letter-spacing: 1px;
+      line-height: 2;
+    }
+  }
 </style>
 </head>
 <body>
@@ -758,7 +897,7 @@
       </div>
       <div class="trader-desc">
         Lightning-fast execution. Lives in the 1-min chart. Reads order flow
-        aggression and fades extremes. First in, first out. Never holds overnight.
+        aggression and fades extremes. First in, first out. All positions flat by 3pm CST.
         Thrives on opening bell chaos. Learned the hard way that scalping
         No Shelter days is a death wish.
       </div>
@@ -771,16 +910,16 @@
         <canvas class="pixel-avatar" id="avatar-tide" width="64" height="64"></canvas>
         <div class="trader-info">
           <h3>TIDE</h3>
-          <div class="role">// THE SWING TRADER</div>
+          <div class="role">// THE POSITION TRADER</div>
           <div class="stat-bar"><span class="label">SPD</span><div class="bar"><div class="bar-fill" style="width:30%"></div></div></div>
           <div class="stat-bar"><span class="label">AGR</span><div class="bar"><div class="bar-fill" style="width:40%"></div></div></div>
           <div class="stat-bar"><span class="label">PAT</span><div class="bar"><div class="bar-fill" style="width:95%"></div></div></div>
         </div>
       </div>
       <div class="trader-desc">
-        Patient and methodical. Waits for weekly structure to align with GEX walls.
-        Enters at hot zone confluences. Holds 2-5 days. Checks Aquila macro state before
-        every entry â won't swing long in Risk-Off. The market comes to the trade.
+        Patient and methodical. Waits for daily structure to align with GEX walls.
+        Enters at hot zone confluences. Holds for hours, not minutes â but always flat by 3pm CST.
+        Checks Aquila macro state before every entry. The market comes to the trade.
       </div>
     </div>
 
