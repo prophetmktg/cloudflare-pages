@@ -275,6 +275,33 @@
   .todo-done .todo-check { color: #34d399; }
   .todo-done span:last-child { color: #34d399; text-decoration: line-through; opacity: 0.5; }
 
+  /* Task Completion Bar */
+  .task-completion {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    margin-bottom: 14px;
+  }
+  .task-bar {
+    flex: 1;
+    height: 6px;
+    background: #1a1d23;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .task-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: #34d399;
+    transition: width 0.6s ease;
+  }
+  .task-count {
+    font-size: 14px;
+    font-weight: 600;
+    color: #9ca3af;
+    white-space: nowrap;
+  }
 
   /* Footer */
   .footer {
@@ -444,7 +471,16 @@ function renderProjects(projects) {
     var slug = p.codename.toLowerCase();
     var progColor = p.progress >= 70 ? '#34d399' : p.progress >= 30 ? '#fbbf24' : '#f87171';
 
-    var todosHtml = '<div class="card-todos-inner"><div class="todos-label">To-do</div><ul class="todo-list">';
+    var doneCount = p.todos.filter(function(t) { return t.done; }).length;
+    var totalCount = p.todos.length;
+    var taskPct = totalCount > 0 ? Math.round((doneCount / totalCount) * 100) : 0;
+
+    var todosHtml = '<div class="card-todos-inner">' +
+      '<div class="task-completion">' +
+        '<div class="task-bar"><div class="task-bar-fill" style="width:' + taskPct + '%;"></div></div>' +
+        '<span class="task-count">' + doneCount + '/' + totalCount + ' tasks</span>' +
+      '</div>' +
+      '<ul class="todo-list">';
     p.todos.forEach(function(t) {
       var cls = t.done ? 'todo-done' : 'todo-pending';
       var icon = t.done ? '\u2713' : '\u25A1';
