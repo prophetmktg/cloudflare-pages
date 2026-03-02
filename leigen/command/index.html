@@ -363,7 +363,7 @@
   var pw = document.getElementById('pw');
   var err = document.getElementById('err');
 
-  if (sessionStorage.getItem('lg_cmd') === '1') {
+  if (localStorage.getItem('lg_cmd') === '1') {
     gate.classList.add('dismissed');
     loadDashboard();
     return;
@@ -372,7 +372,7 @@
   pw.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
       if (pw.value === 'bigbootylatina$') {
-        sessionStorage.setItem('lg_cmd', '1');
+        localStorage.setItem('lg_cmd', '1');
         gate.style.opacity = '0';
         setTimeout(function() { gate.classList.add('dismissed'); loadDashboard(); }, 400);
       } else {
