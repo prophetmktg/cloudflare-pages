@@ -128,26 +128,27 @@
   /* Goals */
   .goals-list {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
   .goal-item {
-    padding: 12px 0;
-    border-bottom: 1px solid #242830;
+    background: #242830;
+    border: 1px solid #2d3139;
+    border-radius: 8px;
+    padding: 14px 16px;
   }
-  .goal-item:last-child { border-bottom: none; }
   .goal-text {
-    font-size: 19px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     color: #e5e7eb;
-    line-height: 1.5;
+    line-height: 1.4;
   }
   .goal-detail {
-    font-size: 17px;
+    font-size: 14px;
     color: #9ca3af;
     margin-top: 4px;
-    line-height: 1.55;
+    line-height: 1.45;
     font-weight: 400;
   }
 
@@ -274,85 +275,6 @@
   .todo-done .todo-check { color: #34d399; }
   .todo-done span:last-child { color: #34d399; text-decoration: line-through; opacity: 0.5; }
 
-  /* Infrastructure */
-  .infra-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-  }
-  .infra-item {
-    background: #242830;
-    border: 1px solid #2d3139;
-    border-radius: 8px;
-    padding: 18px 12px;
-    text-align: center;
-  }
-  .infra-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  .infra-name {
-    display: block;
-    font-size: 15px;
-    font-weight: 600;
-    color: #d1d5db;
-    margin-bottom: 2px;
-    line-height: 1.35;
-  }
-  .infra-detail {
-    display: block;
-    font-size: 13px;
-    color: #6b7280;
-    margin-bottom: 8px;
-  }
-  .infra-badge {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    padding: 3px 8px;
-    border-radius: 4px;
-  }
-  .status-healthy .infra-dot { background: #34d399; }
-  .status-healthy .infra-badge { background: rgba(52,211,153,0.12); color: #34d399; }
-  .status-warning .infra-dot { background: #fbbf24; }
-  .status-warning .infra-badge { background: rgba(251,191,36,0.12); color: #fbbf24; }
-  .status-down .infra-dot { background: #f87171; animation: pulse-red 1.5s infinite; }
-  .status-down .infra-badge { background: rgba(248,113,113,0.12); color: #f87171; }
-  @keyframes pulse-red { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
-
-  /* Pipeline Funnel */
-  .funnel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .funnel-stage {
-    text-align: center;
-    padding: 22px 30px;
-    background: #242830;
-    border: 1px solid #2d3139;
-    border-radius: 8px;
-    min-width: 120px;
-  }
-  .funnel-count {
-    font-size: 36px;
-    font-weight: 800;
-    color: #f3f4f6;
-    margin-bottom: 4px;
-  }
-  .funnel-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: #9ca3af;
-  }
-  .funnel-arrow {
-    color: #4b5563;
-    font-size: 18px;
-    padding: 0 12px;
-  }
 
   /* Footer */
   .footer {
@@ -386,16 +308,12 @@
       margin-top: 12px;
     }
     .card-codename { font-size: 19px; }
-    .infra-grid { grid-template-columns: repeat(2, 1fr); }
-    .funnel { flex-direction: column; gap: 6px; }
-    .funnel-arrow { transform: rotate(90deg); padding: 0; }
-    .funnel-stage { min-width: 200px; }
+    .goals-list { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 400px) {
     .container { padding: 20px 14px 40px; }
     .header h1 { font-size: 22px; }
-    .infra-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -430,16 +348,6 @@
   <section class="section">
     <h2 class="section-title">Active Projects</h2>
     <div class="projects" id="projectCards"></div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Data Infrastructure</h2>
-    <div class="infra-grid" id="infraGrid"></div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Fleet Pipeline</h2>
-    <div class="funnel" id="funnel"></div>
   </section>
 
   <footer class="footer">
@@ -484,8 +392,6 @@ function loadDashboard() {
       renderCountdown(data.meta);
       renderGoals(data.goals);
       renderProjects(data.projects);
-      renderInfra(data.infrastructure);
-      renderFunnel(data.pipeline);
     })
     .catch(function(e) {
       console.error('Data load failed:', e);
@@ -573,38 +479,6 @@ function toggleCard(slug) {
   document.getElementById('card-' + slug).classList.toggle('open');
 }
 
-function renderInfra(infra) {
-  var grid = document.getElementById('infraGrid');
-  var html = '';
-  infra.forEach(function(item) {
-    var cls = 'status-' + item.status.toLowerCase();
-    html += '<div class="infra-item ' + cls + '">' +
-      '<span class="infra-dot"></span>' +
-      '<span class="infra-name">' + item.name + '</span>' +
-      (item.detail ? '<span class="infra-detail">' + item.detail + '</span>' : '') +
-      '<span class="infra-badge">' + item.status + '</span>' +
-    '</div>';
-  });
-  grid.innerHTML = html;
-}
-
-function renderFunnel(pipeline) {
-  var container = document.getElementById('funnel');
-  var stages = [
-    { key: 'research', label: 'Research' },
-    { key: 'validation', label: 'Validation' },
-    { key: 'paper', label: 'Paper' },
-    { key: 'live', label: 'Live' }
-  ];
-  var html = '';
-  stages.forEach(function(s, i) {
-    html += '<div class="funnel-stage">' +
-      '<div class="funnel-count">' + pipeline[s.key] + '</div>' +
-      '<div class="funnel-label">' + s.label + '</div></div>';
-    if (i < stages.length - 1) html += '<div class="funnel-arrow">\u25B6</div>';
-  });
-  container.innerHTML = html;
-}
 </script>
 
 </body>
