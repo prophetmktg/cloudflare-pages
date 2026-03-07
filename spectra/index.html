@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Spectra Dashboard</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface-hover: #222633;
+    --border: #2a2e3d;
+    --text: #e4e4e7;
+    --text-dim: #9ca3af;
+    --text-muted: #6b7280;
+    --accent: #3b82f6;
+    --green: #22c55e;
+    --green-bg: rgba(34,197,94,0.12);
+    --yellow: #eab308;
+    --yellow-bg: rgba(234,179,8,0.12);
+    --red: #ef4444;
+    --red-bg: rgba(239,68,68,0.12);
+    --orange: #f97316;
+    --orange-bg: rgba(249,115,22,0.12);
+    --blue: #3b82f6;
+    --blue-bg: rgba(59,130,246,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* PASSWORD GATE */
+  #passwordGate {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bg); z-index: 99999;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+  }
+  #passwordGate .gate-title {
+    font-size: 32px; font-weight: 700; color: var(--accent);
+    margin-bottom: 6px; letter-spacing: 3px;
+  }
+  #passwordGate .gate-sub {
+    font-size: 12px; color: var(--text-muted); letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 32px;
+  }
+  #passwordGate input {
+    background: var(--surface); border: 2px solid var(--accent); color: var(--text);
+    font-family: inherit; font-size: 16px; padding: 12px 24px;
+    text-align: center; letter-spacing: 2px; outline: none;
+    width: 280px; border-radius: 6px;
+  }
+  #passwordGate input:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+  }
+  #passwordGate .gate-error {
+    font-size: 12px; color: var(--red); margin-top: 12px;
+    opacity: 0; transition: opacity 0.3s;
+  }
+
+  /* DASHBOARD */
+  #dashboard { display: none; }
+
+  .container {
+    max-width: 1000px; margin: 0 auto; padding: 24px 20px;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center; margin-bottom: 32px; padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .header h1 {
+    font-size: 28px; font-weight: 700; letter-spacing: 3px;
+    color: var(--accent); margin-bottom: 4px;
+  }
+  .header .subtitle {
+    font-size: 13px; color: var(--text-muted); letter-spacing: 1px;
+  }
+  .header .updated {
+    font-size: 11px; color: var(--text-muted); margin-top: 8px;
+  }
+
+  /* SECTIONS */
+  .section {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 20px; margin-bottom: 20px;
+  }
+  .section-title {
+    font-size: 13px; font-weight: 600; color: var(--text-muted);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
+  }
+
+  /* REGIME SCORE */
+  .regime-header {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .regime-badge {
+    display: inline-block; padding: 6px 16px; border-radius: 6px;
+    font-size: 14px; font-weight: 700; letter-spacing: 1px;
+  }
+  .regime-badge.risk-off { background: var(--red-bg); color: var(--red); }
+  .regime-badge.risk-on { background: var(--green-bg); color: var(--green); }
+  .regime-badge.neutral { background: var(--yellow-bg); color: var(--yellow); }
+
+  .severity-bar {
+    display: flex; gap: 3px; align-items: center;
+  }
+  .severity-bar .block {
+    width: 24px; height: 16px; border-radius: 3px;
+    background: var(--border); transition: background 0.3s;
+  }
+  .severity-bar .block.filled.low { background: var(--green); }
+  .severity-bar .block.filled.mid { background: var(--yellow); }
+  .severity-bar .block.filled.high { background: var(--orange); }
+  .severity-bar .block.filled.extreme { background: var(--red); }
+  .severity-label {
+    font-size: 14px; font-weight: 600; margin-left: 8px; color: var(--text-dim);
+  }
+
+  .regime-summary {
+    font-size: 14px; color: var(--text-dim); line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .components-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 10px;
+  }
+  .component {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 12px; background: var(--bg); border-radius: 6px;
+    font-size: 13px;
+  }
+  .component-name { color: var(--text-dim); }
+  .component-value {
+    font-weight: 600; font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .component-value.positive { color: var(--green); }
+  .component-value.negative { color: var(--red); }
+  .component-value.zero { color: var(--text-muted); }
+
+  /* TABLES */
+  table {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+  }
+  th {
+    text-align: left; padding: 8px 10px; color: var(--text-muted);
+    font-weight: 500; font-size: 11px; letter-spacing: 1px;
+    text-transform: uppercase; border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 8px 10px; border-bottom: 1px solid rgba(42,46,61,0.5);
+    color: var(--text-dim);
+  }
+  tr:last-child td { border-bottom: none; }
+
+  /* BADGES */
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+  }
+  .badge-bullish { background: var(--green-bg); color: var(--green); }
+  .badge-bearish { background: var(--red-bg); color: var(--red); }
+  .badge-neutral { background: rgba(107,114,128,0.15); color: var(--text-muted); }
+  .badge-high { background: var(--red-bg); color: var(--red); }
+  .badge-medium { background: var(--orange-bg); color: var(--orange); }
+  .badge-low { background: var(--blue-bg); color: var(--blue); }
+
+  .ticker {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px;
+    font-weight: 600; background: var(--blue-bg); color: var(--accent);
+  }
+
+  /* TALLY */
+  .tally {
+    display: flex; gap: 24px; margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .tally-item {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tally-count {
+    font-size: 24px; font-weight: 700;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .tally-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+  .tally-bullish .tally-count { color: var(--green); }
+  .tally-bearish .tally-count { color: var(--red); }
+  .tally-neutral .tally-count { color: var(--text-muted); }
+
+  /* EMPTY STATE */
+  .empty {
+    text-align: center; padding: 20px; color: var(--text-muted);
+    font-size: 13px; font-style: italic;
+  }
+
+  /* FOOTER */
+  .freshness {
+    display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;
+    padding: 16px; font-size: 11px; color: var(--text-muted);
+  }
+  .freshness span { white-space: nowrap; }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .container { padding: 16px 12px; }
+    .section { padding: 14px; }
+    .header h1 { font-size: 22px; }
+    .components-grid { grid-template-columns: 1fr; }
+    .tally { gap: 16px; }
+    .tally-count { font-size: 20px; }
+    th, td { padding: 6px 6px; font-size: 12px; }
+    .hide-mobile { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PASSWORD GATE -->
+<div id="passwordGate">
+  <div class="gate-title">SPECTRA</div>
+  <div class="gate-sub">Macro Intelligence Platform</div>
+  <input type="password" id="gateInput" placeholder="Access code" autofocus>
+  <div class="gate-error" id="gateError">Incorrect</div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>SPECTRA</h1>
+      <div class="subtitle">Macro Intelligence Dashboard</div>
+      <div class="updated" id="lastUpdated"></div>
+    </div>
+
+    <!-- REGIME SCORE -->
+    <div class="section" id="regimeSection">
+      <div class="section-title">Regime Score</div>
+      <div class="regime-header">
+        <div id="regimeBadge" class="regime-badge"></div>
+        <div class="severity-bar" id="severityBar"></div>
+        <span class="severity-label" id="severityLabel"></span>
+      </div>
+      <div class="regime-summary" id="regimeSummary"></div>
+      <div class="components-grid" id="componentsGrid"></div>
+    </div>
+
+    <!-- EDGEFINDER -->
+    <div class="section" id="edgefinderSection">
+      <div class="section-title">EdgeFinder Summary</div>
+      <div class="tally" id="efTally"></div>
+      <div id="efShifts"></div>
+    </div>
+
+    <!-- ECONOMIC CALENDAR -->
+    <div class="section" id="econSection">
+      <div class="section-title">Economic Calendar</div>
+      <div id="econContent"></div>
+    </div>
+
+    <!-- EARNINGS WATCH -->
+    <div class="section" id="earningsSection">
+      <div class="section-title">Earnings Watch</div>
+      <div id="earningsContent"></div>
+    </div>
+
+    <!-- NEWS DIGEST -->
+    <div class="section" id="newsSection">
+      <div class="section-title">News Digest</div>
+      <div id="newsContent"></div>
+    </div>
+
+    <!-- PINNED INTEL -->
+    <div class="section" id="intelSection">
+      <div class="section-title">Pinned Intel</div>
+      <div id="intelContent"></div>
+    </div>
+
+    <!-- FRESHNESS FOOTER -->
+    <div class="freshness" id="freshness"></div>
+
+  </div>
+</div>
+
+<script>
+// -- Utilities --
+function esc(s) {
+  if (!s) return '';
+  var d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function formatDate(s) {
+  if (!s) return '-';
+  var d = new Date(s);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function formatDateTime(s) {
+  if (!s) return '-';
+  var d = new Date(s);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ' ' +
+         d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+}
+
+function biasClass(b) {
+  if (!b) return 'neutral';
+  var bl = b.toLowerCase();
+  if (bl.indexOf('bullish') >= 0) return 'bullish';
+  if (bl.indexOf('bearish') >= 0) return 'bearish';
+  return 'neutral';
+}
+
+function impactClass(i) {
+  if (!i) return 'low';
+  return i.toLowerCase();
+}
+
+// -- Password Gate --
+var gate = document.getElementById('passwordGate');
+var dashboard = document.getElementById('dashboard');
+var gateInput = document.getElementById('gateInput');
+var gateError = document.getElementById('gateError');
+
+gateInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    if (gateInput.value === 'spectra') {
+      gate.style.transition = 'opacity 0.4s';
+      gate.style.opacity = '0';
+      setTimeout(function() {
+        gate.style.display = 'none';
+        dashboard.style.display = 'block';
+        loadDashboard();
+      }, 400);
+    } else {
+      gateError.style.opacity = '1';
+      gateInput.value = '';
+      setTimeout(function() { gateError.style.opacity = '0'; }, 2000);
+    }
+  }
+});
+
+// -- Render Functions --
+function renderRegime(data) {
+  var rs = data.regime_score;
+  if (!rs) {
+    document.getElementById('regimeSection').querySelector('.section-title').insertAdjacentHTML(
+      'afterend', '<div class="empty">No regime score available</div>');
+    return;
+  }
+
+  // Badge
+  var badge = document.getElementById('regimeBadge');
+  var reading = rs.reading || 'neutral';
+  var readingLabel = reading.replace(/_/g, '-').toUpperCase();
+  var badgeClass = reading.indexOf('off') >= 0 ? 'risk-off' : reading.indexOf('on') >= 0 ? 'risk-on' : 'neutral';
+  badge.textContent = readingLabel;
+  badge.className = 'regime-badge ' + badgeClass;
+
+  // Severity bar
+  var severity = rs.severity || 5;
+  var barHtml = '';
+  for (var i = 1; i <= 10; i++) {
+    var filled = i <= severity;
+    var color = i <= 3 ? 'low' : i <= 5 ? 'mid' : i <= 7 ? 'high' : 'extreme';
+    barHtml += '<div class="block' + (filled ? ' filled ' + color : '') + '"></div>';
+  }
+  document.getElementById('severityBar').innerHTML = barHtml;
+  document.getElementById('severityLabel').textContent = severity + ' / 10';
+
+  // Summary
+  document.getElementById('regimeSummary').textContent = rs.summary || '';
+
+  // Components
+  var grid = document.getElementById('componentsGrid');
+  var comps = rs.components || [];
+  var compHtml = '';
+  comps.forEach(function(c) {
+    var val = c.value || 0;
+    var weighted = (val * (c.weight || 0)).toFixed(3);
+    var cls = val > 0.01 ? 'positive' : val < -0.01 ? 'negative' : 'zero';
+    var name = (c.name || '').replace(/_/g, ' ');
+    compHtml += '<div class="component">' +
+      '<span class="component-name">' + esc(name) + ' (' + Math.round((c.weight || 0) * 100) + '%)</span>' +
+      '<span class="component-value ' + cls + '">' + (val >= 0 ? '+' : '') + val.toFixed(3) + '</span>' +
+      '</div>';
+  });
+  grid.innerHTML = compHtml;
+}
+
+function renderEdgeFinder(data) {
+  var shifts = data.edgefinder_shifts || [];
+
+  // We don't have full snapshot list in export, but we have shifts
+  // Show shifts table
+  var container = document.getElementById('efShifts');
+
+  if (shifts.length === 0) {
+    container.innerHTML = '<div class="empty">No EdgeFinder shifts detected</div>';
+    return;
+  }
+
+  // Count shift directions for tally
+  var bullishShifts = 0, bearishShifts = 0;
+  shifts.forEach(function(s) {
+    if ((s.score_delta || 0) > 0) bullishShifts++;
+    else if ((s.score_delta || 0) < 0) bearishShifts++;
+  });
+
+  var tallyEl = document.getElementById('efTally');
+  tallyEl.innerHTML =
+    '<div class="tally-item tally-bullish"><span class="tally-count">' + bullishShifts + '</span><span class="tally-label">Bullish Shifts</span></div>' +
+    '<div class="tally-item tally-bearish"><span class="tally-count">' + bearishShifts + '</span><span class="tally-label">Bearish Shifts</span></div>' +
+    '<div class="tally-item tally-neutral"><span class="tally-count">' + shifts.length + '</span><span class="tally-label">Total Shifts</span></div>';
+
+  var html = '<table><thead><tr>' +
+    '<th>Symbol</th><th>Type</th><th>Previous</th><th>Current</th><th>Delta</th>' +
+    '</tr></thead><tbody>';
+
+  shifts.forEach(function(s) {
+    var delta = s.score_delta || 0;
+    var deltaClass = delta > 0 ? 'positive' : delta < 0 ? 'negative' : 'zero';
+    html += '<tr>' +
+      '<td><span class="ticker">' + esc(s.symbol) + '</span></td>' +
+      '<td>' + esc((s.shift_type || '').replace(/_/g, ' ')) + '</td>' +
+      '<td><span class="badge badge-' + biasClass(s.previous_bias) + '">' + esc(s.previous_bias) + '</span> ' + (s.previous_score || 0) + '</td>' +
+      '<td><span class="badge badge-' + biasClass(s.current_bias) + '">' + esc(s.current_bias) + '</span> ' + (s.current_score || 0) + '</td>' +
+      '<td><span class="component-value ' + deltaClass + '">' + (delta >= 0 ? '+' : '') + delta + '</span></td>' +
+      '</tr>';
+  });
+
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function renderEconomic(data) {
+  var releases = data.recent_releases || [];
+  var upcoming = data.upcoming_economic || [];
+  var container = document.getElementById('econContent');
+
+  // Show upcoming first, then recent with actuals
+  var all = upcoming.concat(releases);
+
+  // Deduplicate by indicator_id + date and limit
+  var seen = {};
+  var items = [];
+  all.forEach(function(r) {
+    var key = (r.indicator_id || '') + '|' + (r.release_date || '');
+    if (!seen[key]) {
+      seen[key] = true;
+      items.push(r);
+    }
+  });
+
+  // Sort by date descending, high impact first
+  items.sort(function(a, b) {
+    var impA = a.impact === 'HIGH' ? 0 : a.impact === 'MEDIUM' ? 1 : 2;
+    var impB = b.impact === 'HIGH' ? 0 : b.impact === 'MEDIUM' ? 1 : 2;
+    if (impA !== impB) return impA - impB;
+    return (b.release_date || '').localeCompare(a.release_date || '');
+  });
+
+  // Show top 10
+  items = items.slice(0, 10);
+
+  if (items.length === 0) {
+    container.innerHTML = '<div class="empty">No economic data available</div>';
+    return;
+  }
+
+  var html = '<table><thead><tr>' +
+    '<th>Date</th><th>Indicator</th><th>Impact</th>' +
+    '<th class="hide-mobile">Consensus</th><th class="hide-mobile">Actual</th><th class="hide-mobile">Surprise</th>' +
+    '</tr></thead><tbody>';
+
+  items.forEach(function(r) {
+    var surprise = r.surprise_delta;
+    var surpriseHtml = surprise != null
+      ? '<span class="component-value ' + (surprise > 0 ? 'positive' : surprise < 0 ? 'negative' : 'zero') + '">' +
+        (surprise >= 0 ? '+' : '') + surprise.toFixed(2) + '</span>'
+      : '-';
+
+    html += '<tr>' +
+      '<td>' + formatDate(r.release_date) + '</td>' +
+      '<td>' + esc(r.notes || r.indicator_id) + '</td>' +
+      '<td><span class="badge badge-' + impactClass(r.impact) + '">' + esc(r.impact) + '</span></td>' +
+      '<td class="hide-mobile">' + (r.consensus != null ? r.consensus : '-') + '</td>' +
+      '<td class="hide-mobile">' + (r.actual != null ? r.actual : '-') + '</td>' +
+      '<td class="hide-mobile">' + surpriseHtml + '</td>' +
+      '</tr>';
+  });
+
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function renderEarnings(data) {
+  var earnings = data.upcoming_earnings || [];
+  var container = document.getElementById('earningsContent');
+
+  if (earnings.length === 0) {
+    container.innerHTML = '<div class="empty">No upcoming earnings</div>';
+    return;
+  }
+
+  var html = '<table><thead><tr>' +
+    '<th>Date</th><th>Ticker</th><th class="hide-mobile">Company</th><th>Time</th><th>Consensus EPS</th>' +
+    '</tr></thead><tbody>';
+
+  earnings.slice(0, 10).forEach(function(e) {
+    html += '<tr>' +
+      '<td>' + formatDate(e.report_date) + '</td>' +
+      '<td><span class="ticker">' + esc(e.ticker) + '</span></td>' +
+      '<td class="hide-mobile">' + esc(e.company_name || '') + '</td>' +
+      '<td>' + esc(e.report_time || '-') + '</td>' +
+      '<td>' + (e.consensus_eps != null ? '$' + e.consensus_eps.toFixed(2) : '-') + '</td>' +
+      '</tr>';
+  });
+
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function renderNews(data) {
+  var news = data.active_news || [];
+  var container = document.getElementById('newsContent');
+
+  if (news.length === 0) {
+    container.innerHTML = '<div class="empty">No recent news</div>';
+    return;
+  }
+
+  // Sort by impact then date
+  news.sort(function(a, b) {
+    var impA = a.impact === 'HIGH' ? 0 : a.impact === 'MEDIUM' ? 1 : 2;
+    var impB = b.impact === 'HIGH' ? 0 : b.impact === 'MEDIUM' ? 1 : 2;
+    if (impA !== impB) return impA - impB;
+    return (b.event_date || '').localeCompare(a.event_date || '');
+  });
+
+  var html = '<table><thead><tr>' +
+    '<th>Time</th><th>Impact</th><th class="hide-mobile">Category</th><th>Headline</th>' +
+    '</tr></thead><tbody>';
+
+  news.slice(0, 10).forEach(function(n) {
+    var cat = (n.category || '').replace(/_/g, ' ');
+    html += '<tr>' +
+      '<td style="white-space:nowrap">' + formatDateTime(n.event_date) + '</td>' +
+      '<td><span class="badge badge-' + impactClass(n.impact) + '">' + esc(n.impact) + '</span></td>' +
+      '<td class="hide-mobile"><span class="badge badge-neutral">' + esc(cat) + '</span></td>' +
+      '<td>' + esc(n.headline) + '</td>' +
+      '</tr>';
+  });
+
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function renderIntel(data) {
+  var intel = data.pinned_intel || [];
+  var container = document.getElementById('intelContent');
+
+  if (intel.length === 0) {
+    container.innerHTML = '<div class="empty">No pinned intel</div>';
+    return;
+  }
+
+  var html = '<table><thead><tr>' +
+    '<th>Date</th><th>Source</th><th>Title</th>' +
+    '</tr></thead><tbody>';
+
+  intel.forEach(function(i) {
+    html += '<tr>' +
+      '<td style="white-space:nowrap">' + formatDate(i.entry_date) + '</td>' +
+      '<td>' + esc(i.source || '-') + '</td>' +
+      '<td>' + esc(i.title) + '</td>' +
+      '</tr>';
+  });
+
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function renderFreshness(data) {
+  var meta = data._meta || {};
+  var el = document.getElementById('freshness');
+  var parts = [];
+  if (meta.exported_at) parts.push('Exported: ' + formatDateTime(meta.exported_at));
+  if (data.context_date) parts.push('Context Date: ' + formatDate(data.context_date));
+  if (meta.spectra_version) parts.push('Spectra v' + meta.spectra_version);
+  el.innerHTML = parts.map(function(p) { return '<span>' + esc(p) + '</span>'; }).join('');
+}
+
+// -- Load Dashboard --
+function loadDashboard() {
+  fetch('dashboard.json?t=' + Date.now())
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      // Header
+      document.getElementById('lastUpdated').textContent =
+        'Context: ' + formatDate(data.context_date) +
+        (data._meta && data._meta.exported_at ? ' | Updated: ' + formatDateTime(data._meta.exported_at) : '');
+
+      renderRegime(data);
+      renderEdgeFinder(data);
+      renderEconomic(data);
+      renderEarnings(data);
+      renderNews(data);
+      renderIntel(data);
+      renderFreshness(data);
+    })
+    .catch(function(err) {
+      document.querySelector('.container').innerHTML =
+        '<div class="empty" style="padding:60px">Failed to load dashboard data. ' + esc(err.message) + '</div>';
+    });
+}
+</script>
+</body>
+</html>
