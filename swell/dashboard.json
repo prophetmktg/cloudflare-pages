@@ -1,0 +1,2898 @@
+{
+  "generated": "2026-03-07T08:41:37",
+  "days": [
+    {
+      "date": "2026-03-07",
+      "trends": [
+        {
+          "keyword": "oil prices",
+          "score": 18.6,
+          "acceleration": 153.9,
+          "sources": 4,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "USO"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 66.0,
+              "baseline": 20.177777777777777,
+              "acceleration": 227.09251101321587
+            },
+            {
+              "source": "wikipedia",
+              "value": 10.571428571428571,
+              "baseline": 10.266666666666667,
+              "acceleration": 2.9684601113172433
+            },
+            {
+              "source": "hackernews",
+              "value": 4.0,
+              "baseline": 1.1666666666666667,
+              "acceleration": 242.85714285714283
+            },
+            {
+              "source": "reddit",
+              "value": 86573.0,
+              "baseline": 35650.25,
+              "acceleration": 142.83981178252608
+            }
+          ]
+        },
+        {
+          "keyword": "China trade war",
+          "score": 18.2,
+          "acceleration": 257.2,
+          "sources": 3,
+          "direction": "rising",
+          "phase": "re-accelerating",
+          "conviction": "high",
+          "tickers": [
+            "FXI"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 1.0,
+              "baseline": 0.9111111111111111,
+              "acceleration": 9.756097560975611
+            },
+            {
+              "source": "wikipedia",
+              "value": 1291.857142857143,
+              "baseline": 1234.1666666666667,
+              "acceleration": 4.674447766952827
+            },
+            {
+              "source": "hackernews",
+              "value": 2.0,
+              "baseline": 0.23333333333333334,
+              "acceleration": 757.1428571428571
+            }
+          ]
+        },
+        {
+          "keyword": "Claude AI",
+          "score": 17.1,
+          "acceleration": 137.2,
+          "sources": 5,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 3.0,
+              "baseline": 1.511111111111111,
+              "acceleration": 98.52941176470588
+            },
+            {
+              "source": "wikipedia",
+              "value": 19481.0,
+              "baseline": 11053.1,
+              "acceleration": 76.24919705783897
+            },
+            {
+              "source": "hackernews",
+              "value": 282.0,
+              "baseline": 195.53333333333333,
+              "acceleration": 44.22093419706785
+            },
+            {
+              "source": "youtube",
+              "value": 56868.0,
+              "baseline": 14687.633333333333,
+              "acceleration": 287.1828681271546
+            },
+            {
+              "source": "reddit",
+              "value": 146631.0,
+              "baseline": 52367.25,
+              "acceleration": 180.00515589418958
+            }
+          ]
+        },
+        {
+          "keyword": "ChatGPT",
+          "score": 15.2,
+          "acceleration": 221.9,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "MSFT"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 72.0,
+              "baseline": 76.88888888888889,
+              "acceleration": -6.35838150289017
+            },
+            {
+              "source": "wikipedia",
+              "value": 77688.42857142857,
+              "baseline": 97507.76666666666,
+              "acceleration": -20.325907127984095
+            },
+            {
+              "source": "hackernews",
+              "value": 154.0,
+              "baseline": 124.60000000000001,
+              "acceleration": 23.59550561797752
+            },
+            {
+              "source": "youtube",
+              "value": 160420.0,
+              "baseline": 17480.166666666668,
+              "acceleration": 817.7258035297147
+            },
+            {
+              "source": "reddit",
+              "value": 758986.0,
+              "baseline": 192161.5,
+              "acceleration": 294.9729784582239
+            }
+          ]
+        },
+        {
+          "keyword": "market making",
+          "score": 15.0,
+          "acceleration": 182.8,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "VIRT"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 1.0,
+              "baseline": 1.5444444444444445,
+              "acceleration": -35.251798561151084
+            },
+            {
+              "source": "wikipedia",
+              "value": 7.714285714285714,
+              "baseline": 9.433333333333334,
+              "acceleration": -18.2231196365472
+            },
+            {
+              "source": "hackernews",
+              "value": 8.0,
+              "baseline": 4.2,
+              "acceleration": 90.47619047619047
+            },
+            {
+              "source": "youtube",
+              "value": 406480.0,
+              "baseline": 43839.6,
+              "acceleration": 827.1982408598619
+            },
+            {
+              "source": "reddit",
+              "value": 139859.0,
+              "baseline": 93319.75,
+              "acceleration": 49.870740116641976
+            }
+          ]
+        },
+        {
+          "keyword": "AI agents",
+          "score": 14.1,
+          "acceleration": 170.7,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "MSFT",
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 52.0,
+              "baseline": 59.24444444444445,
+              "acceleration": -12.228057014253567
+            },
+            {
+              "source": "wikipedia",
+              "value": 453.42857142857144,
+              "baseline": 513.4,
+              "acceleration": -11.681228782903883
+            },
+            {
+              "source": "hackernews",
+              "value": 595.0,
+              "baseline": 498.40000000000003,
+              "acceleration": 19.382022471910105
+            },
+            {
+              "source": "youtube",
+              "value": 155925.0,
+              "baseline": 15792.466666666667,
+              "acceleration": 887.3378446263407
+            },
+            {
+              "source": "reddit",
+              "value": 19922.0,
+              "baseline": 28254.25,
+              "acceleration": -29.490253678650113
+            }
+          ]
+        },
+        {
+          "keyword": "AI automation",
+          "score": 13.6,
+          "acceleration": 137.0,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "MSFT",
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 39.0,
+              "baseline": 52.15555555555556,
+              "acceleration": -25.22368981678739
+            },
+            {
+              "source": "wikipedia",
+              "value": 380.57142857142856,
+              "baseline": 444.6,
+              "acceleration": -14.40138808559862
+            },
+            {
+              "source": "hackernews",
+              "value": 119.0,
+              "baseline": 80.96666666666667,
+              "acceleration": 46.97406340057636
+            },
+            {
+              "source": "youtube",
+              "value": 110235.0,
+              "baseline": 14982.333333333334,
+              "acceleration": 635.7665695152068
+            },
+            {
+              "source": "reddit",
+              "value": 29666.0,
+              "baseline": 20918.5,
+              "acceleration": 41.81705189186605
+            }
+          ]
+        },
+        {
+          "keyword": "mortgage rates",
+          "score": 13.5,
+          "acceleration": 115.3,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "XHB"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 40.0,
+              "baseline": 44.4,
+              "acceleration": -9.909909909909906
+            },
+            {
+              "source": "wikipedia",
+              "value": 2.2857142857142856,
+              "baseline": 2.6333333333333333,
+              "acceleration": -13.20072332730561
+            },
+            {
+              "source": "hackernews",
+              "value": 2.0,
+              "baseline": 0.4666666666666667,
+              "acceleration": 328.57142857142856
+            },
+            {
+              "source": "youtube",
+              "value": 29304.0,
+              "baseline": 0.0,
+              "acceleration": 100.0
+            },
+            {
+              "source": "reddit",
+              "value": 50574.0,
+              "baseline": 18647.75,
+              "acceleration": 171.20698207558553
+            }
+          ]
+        },
+        {
+          "keyword": "prop trading",
+          "score": 13.4,
+          "acceleration": 112.9,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "IBKR"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 1.0,
+              "baseline": 1.0555555555555556,
+              "acceleration": -5.263157894736844
+            },
+            {
+              "source": "wikipedia",
+              "value": 261.0,
+              "baseline": 291.4,
+              "acceleration": -10.432395332875766
+            },
+            {
+              "source": "hackernews",
+              "value": 54.0,
+              "baseline": 28.933333333333334,
+              "acceleration": 86.63594470046083
+            },
+            {
+              "source": "youtube",
+              "value": 68962.0,
+              "baseline": 22601.833333333336,
+              "acceleration": 205.1168415541512
+            },
+            {
+              "source": "reddit",
+              "value": 7594.0,
+              "baseline": 1954.75,
+              "acceleration": 288.4895766722087
+            }
+          ]
+        },
+        {
+          "keyword": "inflation",
+          "score": 13.0,
+          "acceleration": 117.9,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "TIP"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 33.0,
+              "baseline": 51.08888888888889,
+              "acceleration": -35.406698564593306
+            },
+            {
+              "source": "wikipedia",
+              "value": 2135.0,
+              "baseline": 1728.7666666666667,
+              "acceleration": 23.49844783371575
+            },
+            {
+              "source": "hackernews",
+              "value": 38.0,
+              "baseline": 33.6,
+              "acceleration": 13.09523809523809
+            },
+            {
+              "source": "youtube",
+              "value": 96285.0,
+              "baseline": 15334.666666666668,
+              "acceleration": 527.8910529519171
+            },
+            {
+              "source": "reddit",
+              "value": 245012.0,
+              "baseline": 152933.0,
+              "acceleration": 60.20871885073856
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-06",
+      "trends": [
+        {
+          "keyword": "Claude AI",
+          "score": 18.2,
+          "acceleration": 156.0,
+          "sources": 5,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 4.0,
+              "baseline": 1.4777777777777779,
+              "acceleration": 170.6766917293233
+            },
+            {
+              "source": "wikipedia",
+              "value": 20499.85714285714,
+              "baseline": 10559.333333333334,
+              "acceleration": 94.13969135858142
+            },
+            {
+              "source": "hackernews",
+              "value": 270.0,
+              "baseline": 190.86666666666667,
+              "acceleration": 41.46000698567936
+            },
+            {
+              "source": "youtube",
+              "value": 56014.0,
+              "baseline": 14684.133333333333,
+              "acceleration": 281.4593529523931
+            },
+            {
+              "source": "reddit",
+              "value": 148436.0,
+              "baseline": 50793.5,
+              "acceleration": 192.23424257040762
+            }
+          ]
+        },
+        {
+          "keyword": "market making",
+          "score": 15.7,
+          "acceleration": 190.8,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "VIRT"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 2.0,
+              "baseline": 2.3,
+              "acceleration": -13.04347826086956
+            },
+            {
+              "source": "wikipedia",
+              "value": 7.714285714285714,
+              "baseline": 9.433333333333334,
+              "acceleration": -18.2231196365472
+            },
+            {
+              "source": "hackernews",
+              "value": 7.0,
+              "baseline": 4.2,
+              "acceleration": 66.66666666666666
+            },
+            {
+              "source": "youtube",
+              "value": 415069.0,
+              "baseline": 43821.4,
+              "acceleration": 847.183339646839
+            },
+            {
+              "source": "reddit",
+              "value": 173683.0,
+              "baseline": 101217.25,
+              "acceleration": 71.59426876347658
+            }
+          ]
+        },
+        {
+          "keyword": "ChatGPT",
+          "score": 15.4,
+          "acceleration": 214.7,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "MSFT"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 94.0,
+              "baseline": 76.54444444444445,
+              "acceleration": 22.804470895630704
+            },
+            {
+              "source": "wikipedia",
+              "value": 78241.71428571429,
+              "baseline": 99111.86666666667,
+              "acceleration": -21.057168109993267
+            },
+            {
+              "source": "hackernews",
+              "value": 159.0,
+              "baseline": 121.8,
+              "acceleration": 30.541871921182267
+            },
+            {
+              "source": "youtube",
+              "value": 157320.0,
+              "baseline": 17974.600000000002,
+              "acceleration": 775.2350539094053
+            },
+            {
+              "source": "reddit",
+              "value": 701842.0,
+              "baseline": 191865.25,
+              "acceleration": 265.7994347595513
+            }
+          ]
+        },
+        {
+          "keyword": "AI automation",
+          "score": 13.9,
+          "acceleration": 129.6,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "MSFT",
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 52.0,
+              "baseline": 53.75555555555555,
+              "acceleration": -3.2658123191401356
+            },
+            {
+              "source": "wikipedia",
+              "value": 381.42857142857144,
+              "baseline": 449.8333333333333,
+              "acceleration": -15.20669030857989
+            },
+            {
+              "source": "hackernews",
+              "value": 119.0,
+              "baseline": 81.9,
+              "acceleration": 45.29914529914529
+            },
+            {
+              "source": "youtube",
+              "value": 102228.0,
+              "baseline": 15079.166666666668,
+              "acceleration": 577.9419729206962
+            },
+            {
+              "source": "reddit",
+              "value": 30129.0,
+              "baseline": 21055.25,
+              "acceleration": 43.09495256527469
+            }
+          ]
+        },
+        {
+          "keyword": "AI agents",
+          "score": 13.9,
+          "acceleration": 145.4,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "MSFT",
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 62.0,
+              "baseline": 61.477777777777774,
+              "acceleration": 0.8494487619736186
+            },
+            {
+              "source": "wikipedia",
+              "value": 465.42857142857144,
+              "baseline": 513.7333333333333,
+              "acceleration": -9.402691780060064
+            },
+            {
+              "source": "hackernews",
+              "value": 596.0,
+              "baseline": 490.93333333333334,
+              "acceleration": 21.40141227593699
+            },
+            {
+              "source": "youtube",
+              "value": 132893.0,
+              "baseline": 15798.533333333335,
+              "acceleration": 741.1730202803635
+            },
+            {
+              "source": "reddit",
+              "value": 22166.0,
+              "baseline": 30275.75,
+              "acceleration": -26.78628935699363
+            }
+          ]
+        },
+        {
+          "keyword": "inflation",
+          "score": 13.7,
+          "acceleration": 123.9,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "re-accelerating",
+          "conviction": "medium",
+          "tickers": [
+            "TIP"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 33.0,
+              "baseline": 50.9,
+              "acceleration": -35.16699410609037
+            },
+            {
+              "source": "wikipedia",
+              "value": 2524.0,
+              "baseline": 1641.5,
+              "acceleration": 53.76180322875419
+            },
+            {
+              "source": "hackernews",
+              "value": 35.0,
+              "baseline": 32.666666666666664,
+              "acceleration": 7.142857142857151
+            },
+            {
+              "source": "youtube",
+              "value": 96271.0,
+              "baseline": 15371.533333333335,
+              "acceleration": 526.2940587145936
+            },
+            {
+              "source": "reddit",
+              "value": 264427.0,
+              "baseline": 157812.75,
+              "acceleration": 67.55743753277223
+            }
+          ]
+        },
+        {
+          "keyword": "AI coding assistant",
+          "score": 12.1,
+          "acceleration": 71.1,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "MSFT",
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 3.0,
+              "baseline": 3.466666666666667,
+              "acceleration": -13.461538461538463
+            },
+            {
+              "source": "wikipedia",
+              "value": 138848.85714285713,
+              "baseline": 37533.5,
+              "acceleration": 269.9331454376947
+            },
+            {
+              "source": "hackernews",
+              "value": 23.0,
+              "baseline": 14.933333333333334,
+              "acceleration": 54.01785714285714
+            },
+            {
+              "source": "youtube",
+              "value": 33526.0,
+              "baseline": 23077.133333333335,
+              "acceleration": 45.27800968924504
+            },
+            {
+              "source": "reddit",
+              "value": 8086.0,
+              "baseline": 8098.75,
+              "acceleration": -0.15743170242321344
+            }
+          ]
+        },
+        {
+          "keyword": "options trading",
+          "score": 12.1,
+          "acceleration": 70.1,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "CBOE",
+            "HOOD"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 14.0,
+              "baseline": 27.1,
+              "acceleration": -48.33948339483395
+            },
+            {
+              "source": "wikipedia",
+              "value": 31.714285714285715,
+              "baseline": 124.93333333333334,
+              "acceleration": -74.61503277938709
+            },
+            {
+              "source": "hackernews",
+              "value": 44.0,
+              "baseline": 31.5,
+              "acceleration": 39.682539682539684
+            },
+            {
+              "source": "youtube",
+              "value": 83686.0,
+              "baseline": 14673.633333333333,
+              "acceleration": 470.3154637910629
+            },
+            {
+              "source": "reddit",
+              "value": 24873.0,
+              "baseline": 39208.0,
+              "acceleration": -36.56141603754336
+            }
+          ]
+        },
+        {
+          "keyword": "Ethereum",
+          "score": 12.1,
+          "acceleration": 68.9,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "ETH-USD"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 3.0,
+              "baseline": 3.8333333333333335,
+              "acceleration": -21.73913043478261
+            },
+            {
+              "source": "wikipedia",
+              "value": 1448.5714285714287,
+              "baseline": 1832.9,
+              "acceleration": -20.968332774759745
+            },
+            {
+              "source": "hackernews",
+              "value": 3.0,
+              "baseline": 4.666666666666667,
+              "acceleration": -35.71428571428572
+            },
+            {
+              "source": "youtube",
+              "value": 86029.0,
+              "baseline": 15673.0,
+              "acceleration": 448.89938110125695
+            },
+            {
+              "source": "reddit",
+              "value": 4788.0,
+              "baseline": 6471.25,
+              "acceleration": -26.01120339965231
+            }
+          ]
+        },
+        {
+          "keyword": "Shopify",
+          "score": 12.0,
+          "acceleration": 65.1,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "SHOP"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 64.0,
+              "baseline": 74.36666666666666,
+              "acceleration": -13.939937247870901
+            },
+            {
+              "source": "wikipedia",
+              "value": 1471.7142857142858,
+              "baseline": 1577.0333333333333,
+              "acceleration": -6.678301935218925
+            },
+            {
+              "source": "hackernews",
+              "value": 30.0,
+              "baseline": 19.6,
+              "acceleration": 53.06122448979591
+            },
+            {
+              "source": "youtube",
+              "value": 61492.0,
+              "baseline": 14458.5,
+              "acceleration": 325.2999965418266
+            },
+            {
+              "source": "reddit",
+              "value": 6197.0,
+              "baseline": 9167.0,
+              "acceleration": -32.39882186102324
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "trends": [
+        {
+          "keyword": "housing shortage",
+          "score": 23.0,
+          "acceleration": 540.5,
+          "sources": 4,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "XHB"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 0.0,
+              "baseline": 0.9,
+              "acceleration": -100.0
+            },
+            {
+              "source": "wikipedia",
+              "value": 11.142857142857142,
+              "baseline": 9.966666666666667,
+              "acceleration": 11.801242236024837
+            },
+            {
+              "source": "hackernews",
+              "value": 11.0,
+              "baseline": 0.4666666666666667,
+              "acceleration": 2257.142857142857
+            },
+            {
+              "source": "reddit",
+              "value": 11718.0,
+              "baseline": 12605.25,
+              "acceleration": -7.038733860891296
+            }
+          ]
+        },
+        {
+          "keyword": "housing shortage",
+          "score": 21.5,
+          "acceleration": 540.5,
+          "sources": 4,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "XHB"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 0.0,
+              "baseline": 0.9,
+              "acceleration": -100.0
+            },
+            {
+              "source": "wikipedia",
+              "value": 11.142857142857142,
+              "baseline": 9.966666666666667,
+              "acceleration": 11.801242236024837
+            },
+            {
+              "source": "hackernews",
+              "value": 11.0,
+              "baseline": 0.4666666666666667,
+              "acceleration": 2257.142857142857
+            },
+            {
+              "source": "reddit",
+              "value": 11718.0,
+              "baseline": 12605.25,
+              "acceleration": -7.038733860891296
+            }
+          ]
+        },
+        {
+          "keyword": "housing shortage",
+          "score": 20.5,
+          "acceleration": 723.0,
+          "sources": 3,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "XHB"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 0.0,
+              "baseline": 0.9,
+              "acceleration": -100.0
+            },
+            {
+              "source": "wikipedia",
+              "value": 11.142857142857142,
+              "baseline": 9.966666666666667,
+              "acceleration": 11.801242236024837
+            },
+            {
+              "source": "hackernews",
+              "value": 11.0,
+              "baseline": 0.4666666666666667,
+              "acceleration": 2257.142857142857
+            }
+          ]
+        },
+        {
+          "keyword": "Claude AI",
+          "score": 20.4,
+          "acceleration": 162.8,
+          "sources": 5,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 4.0,
+              "baseline": 1.4333333333333333,
+              "acceleration": 179.06976744186045
+            },
+            {
+              "source": "wikipedia",
+              "value": 20718.85714285714,
+              "baseline": 10221.5,
+              "acceleration": 102.69879316007572
+            },
+            {
+              "source": "hackernews",
+              "value": 273.0,
+              "baseline": 180.83333333333334,
+              "acceleration": 50.967741935483865
+            },
+            {
+              "source": "youtube",
+              "value": 56433.0,
+              "baseline": 14588.933333333334,
+              "acceleration": 286.82060374530465
+            },
+            {
+              "source": "reddit",
+              "value": 149861.0,
+              "baseline": 50906.75,
+              "acceleration": 194.38335780618482
+            }
+          ]
+        },
+        {
+          "keyword": "housing shortage",
+          "score": 20.0,
+          "acceleration": 723.0,
+          "sources": 3,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "XHB"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 0.0,
+              "baseline": 0.9,
+              "acceleration": -100.0
+            },
+            {
+              "source": "wikipedia",
+              "value": 11.142857142857142,
+              "baseline": 9.966666666666667,
+              "acceleration": 11.801242236024837
+            },
+            {
+              "source": "hackernews",
+              "value": 11.0,
+              "baseline": 0.4666666666666667,
+              "acceleration": 2257.142857142857
+            }
+          ]
+        },
+        {
+          "keyword": "Claude AI",
+          "score": 19.4,
+          "acceleration": 162.8,
+          "sources": 5,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 4.0,
+              "baseline": 1.4333333333333333,
+              "acceleration": 179.06976744186045
+            },
+            {
+              "source": "wikipedia",
+              "value": 20718.85714285714,
+              "baseline": 10221.5,
+              "acceleration": 102.69879316007572
+            },
+            {
+              "source": "hackernews",
+              "value": 273.0,
+              "baseline": 180.83333333333334,
+              "acceleration": 50.967741935483865
+            },
+            {
+              "source": "youtube",
+              "value": 56468.0,
+              "baseline": 14588.233333333334,
+              "acceleration": 287.0790842848231
+            },
+            {
+              "source": "reddit",
+              "value": 149857.0,
+              "baseline": 50900.25,
+              "acceleration": 194.4130922736136
+            }
+          ]
+        },
+        {
+          "keyword": "Claude Code",
+          "score": 19.2,
+          "acceleration": 124.6,
+          "sources": 5,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 3.0,
+              "baseline": 1.3888888888888888,
+              "acceleration": 116.00000000000001
+            },
+            {
+              "source": "wikipedia",
+              "value": 20718.85714285714,
+              "baseline": 10221.5,
+              "acceleration": 102.69879316007572
+            },
+            {
+              "source": "hackernews",
+              "value": 371.0,
+              "baseline": 271.1333333333333,
+              "acceleration": 36.833046471600696
+            },
+            {
+              "source": "youtube",
+              "value": 39921.0,
+              "baseline": 13713.933333333334,
+              "acceleration": 191.0981046040766
+            },
+            {
+              "source": "reddit",
+              "value": 94839.0,
+              "baseline": 34338.5,
+              "acceleration": 176.18853473506414
+            }
+          ]
+        },
+        {
+          "keyword": "Claude AI",
+          "score": 18.9,
+          "acceleration": 162.8,
+          "sources": 5,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 4.0,
+              "baseline": 1.4333333333333333,
+              "acceleration": 179.06976744186045
+            },
+            {
+              "source": "wikipedia",
+              "value": 20718.85714285714,
+              "baseline": 10221.5,
+              "acceleration": 102.69879316007572
+            },
+            {
+              "source": "hackernews",
+              "value": 273.0,
+              "baseline": 180.83333333333334,
+              "acceleration": 50.967741935483865
+            },
+            {
+              "source": "youtube",
+              "value": 56468.0,
+              "baseline": 14588.233333333334,
+              "acceleration": 287.0790842848231
+            },
+            {
+              "source": "reddit",
+              "value": 149857.0,
+              "baseline": 50900.25,
+              "acceleration": 194.4130922736136
+            }
+          ]
+        },
+        {
+          "keyword": "cord cutting",
+          "score": 18.5,
+          "acceleration": 433.5,
+          "sources": 3,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "NFLX"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 1.0,
+              "baseline": 1.2444444444444445,
+              "acceleration": -19.642857142857146
+            },
+            {
+              "source": "wikipedia",
+              "value": 93.71428571428571,
+              "baseline": 102.46666666666667,
+              "acceleration": -8.541686030300221
+            },
+            {
+              "source": "hackernews",
+              "value": 10.0,
+              "baseline": 0.7000000000000001,
+              "acceleration": 1328.5714285714284
+            }
+          ]
+        },
+        {
+          "keyword": "prop trading",
+          "score": 18.4,
+          "acceleration": 429.6,
+          "sources": 4,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "IBKR"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 1.0,
+              "baseline": 1.7333333333333334,
+              "acceleration": -42.30769230769231
+            },
+            {
+              "source": "wikipedia",
+              "value": 277.7142857142857,
+              "baseline": 287.2,
+              "acceleration": -3.3028253083963324
+            },
+            {
+              "source": "hackernews",
+              "value": 14.0,
+              "baseline": 0.9333333333333333,
+              "acceleration": 1400.0
+            },
+            {
+              "source": "reddit",
+              "value": 8162.0,
+              "baseline": 1759.25,
+              "acceleration": 363.947704987921
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-03",
+      "trends": [
+        {
+          "keyword": "day trading",
+          "score": 23.5,
+          "acceleration": 592.5,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 31.0,
+              "baseline": 53.74444444444445,
+              "acceleration": -42.31961959892496
+            },
+            {
+              "source": "wikipedia",
+              "value": 364.14285714285717,
+              "baseline": 360.8333333333333,
+              "acceleration": 0.9171890465193125
+            },
+            {
+              "source": "hackernews",
+              "value": 57.0,
+              "baseline": 4.433333333333334,
+              "acceleration": 1185.7142857142856
+            },
+            {
+              "source": "youtube",
+              "value": 316666.0,
+              "baseline": 16334.966666666667,
+              "acceleration": 1838.577570814347
+            },
+            {
+              "source": "reddit",
+              "value": 68912.0,
+              "baseline": 86562.75,
+              "acceleration": -20.390699232637598
+            }
+          ]
+        },
+        {
+          "keyword": "Claude AI",
+          "score": 21.4,
+          "acceleration": 181.3,
+          "sources": 5,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 5.0,
+              "baseline": 1.3555555555555556,
+              "acceleration": 268.8524590163934
+            },
+            {
+              "source": "wikipedia",
+              "value": 16049.57142857143,
+              "baseline": 9207.333333333334,
+              "acceleration": 74.31291827425343
+            },
+            {
+              "source": "hackernews",
+              "value": 290.0,
+              "baseline": 164.03333333333333,
+              "acceleration": 76.79333468807154
+            },
+            {
+              "source": "youtube",
+              "value": 56017.0,
+              "baseline": 14355.6,
+              "acceleration": 290.2100922288166
+            },
+            {
+              "source": "reddit",
+              "value": 143569.0,
+              "baseline": 48422.75,
+              "acceleration": 196.49080236046072
+            }
+          ]
+        },
+        {
+          "keyword": "prop trading",
+          "score": 21.3,
+          "acceleration": 426.0,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "IBKR"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 1.0,
+              "baseline": 1.7666666666666666,
+              "acceleration": -43.39622641509433
+            },
+            {
+              "source": "wikipedia",
+              "value": 290.2857142857143,
+              "baseline": 282.53333333333336,
+              "acceleration": 2.743881884986167
+            },
+            {
+              "source": "hackernews",
+              "value": 17.0,
+              "baseline": 0.9333333333333333,
+              "acceleration": 1721.4285714285716
+            },
+            {
+              "source": "youtube",
+              "value": 68561.0,
+              "baseline": 22258.600000000002,
+              "acceleration": 208.02027081667305
+            },
+            {
+              "source": "reddit",
+              "value": 7828.0,
+              "baseline": 2295.0,
+              "acceleration": 241.0893246187364
+            }
+          ]
+        },
+        {
+          "keyword": "Claude Code",
+          "score": 19.6,
+          "acceleration": 120.1,
+          "sources": 5,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 3.0,
+              "baseline": 1.3222222222222222,
+              "acceleration": 126.89075630252103
+            },
+            {
+              "source": "wikipedia",
+              "value": 16049.57142857143,
+              "baseline": 9207.333333333334,
+              "acceleration": 74.31291827425343
+            },
+            {
+              "source": "hackernews",
+              "value": 381.0,
+              "baseline": 256.2,
+              "acceleration": 48.71194379391101
+            },
+            {
+              "source": "youtube",
+              "value": 40117.0,
+              "baseline": 13664.7,
+              "acceleration": 193.5812714512576
+            },
+            {
+              "source": "reddit",
+              "value": 90638.0,
+              "baseline": 35254.75,
+              "acceleration": 157.09443408335048
+            }
+          ]
+        },
+        {
+          "keyword": "food prices",
+          "score": 18.5,
+          "acceleration": 415.8,
+          "sources": 3,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "DBA"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 32.0,
+              "baseline": 66.06666666666666,
+              "acceleration": -51.564076690211905
+            },
+            {
+              "source": "wikipedia",
+              "value": 52.42857142857143,
+              "baseline": 74.5,
+              "acceleration": -29.626078619367206
+            },
+            {
+              "source": "hackernews",
+              "value": 10.0,
+              "baseline": 0.7000000000000001,
+              "acceleration": 1328.5714285714284
+            }
+          ]
+        },
+        {
+          "keyword": "cord cutting",
+          "score": 17.1,
+          "acceleration": 370.3,
+          "sources": 3,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "NFLX"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 2.0,
+              "baseline": 1.1555555555555554,
+              "acceleration": 73.0769230769231
+            },
+            {
+              "source": "wikipedia",
+              "value": 95.57142857142857,
+              "baseline": 100.5,
+              "acceleration": -4.9040511727078915
+            },
+            {
+              "source": "hackernews",
+              "value": 8.0,
+              "baseline": 0.7000000000000001,
+              "acceleration": 1042.8571428571427
+            }
+          ]
+        },
+        {
+          "keyword": "oil prices",
+          "score": 16.2,
+          "acceleration": 338.5,
+          "sources": 3,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "USO"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 67.0,
+              "baseline": 17.866666666666667,
+              "acceleration": 275.0
+            },
+            {
+              "source": "wikipedia",
+              "value": 8.571428571428571,
+              "baseline": 10.266666666666667,
+              "acceleration": -16.512059369202237
+            },
+            {
+              "source": "hackernews",
+              "value": 2.0,
+              "baseline": 0.23333333333333334,
+              "acceleration": 757.1428571428571
+            }
+          ]
+        },
+        {
+          "keyword": "ChatGPT",
+          "score": 16.1,
+          "acceleration": 221.2,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "MSFT"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 93.0,
+              "baseline": 75.23333333333333,
+              "acceleration": 23.61541869738591
+            },
+            {
+              "source": "wikipedia",
+              "value": 82869.85714285714,
+              "baseline": 102131.4,
+              "acceleration": -18.859569982535096
+            },
+            {
+              "source": "hackernews",
+              "value": 148.0,
+              "baseline": 119.0,
+              "acceleration": 24.369747899159663
+            },
+            {
+              "source": "youtube",
+              "value": 147659.0,
+              "baseline": 17066.233333333334,
+              "acceleration": 765.211421383746
+            },
+            {
+              "source": "reddit",
+              "value": 650394.0,
+              "baseline": 157955.25,
+              "acceleration": 311.75839359565447
+            }
+          ]
+        },
+        {
+          "keyword": "options trading",
+          "score": 16.0,
+          "acceleration": 199.1,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "CBOE",
+            "HOOD"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 14.0,
+              "baseline": 27.444444444444443,
+              "acceleration": -48.987854251012145
+            },
+            {
+              "source": "wikipedia",
+              "value": 41.42857142857143,
+              "baseline": 120.33333333333333,
+              "acceleration": -65.57182429758606
+            },
+            {
+              "source": "hackernews",
+              "value": 15.0,
+              "baseline": 1.8666666666666667,
+              "acceleration": 703.5714285714286
+            },
+            {
+              "source": "youtube",
+              "value": 74877.0,
+              "baseline": 14421.166666666668,
+              "acceleration": 419.2159672703317
+            },
+            {
+              "source": "reddit",
+              "value": 34635.0,
+              "baseline": 39723.0,
+              "acceleration": -12.80870024922589
+            }
+          ]
+        },
+        {
+          "keyword": "market making",
+          "score": 15.2,
+          "acceleration": 172.7,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "VIRT"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 1.0,
+              "baseline": 2.3666666666666667,
+              "acceleration": -57.74647887323944
+            },
+            {
+              "source": "wikipedia",
+              "value": 8.571428571428571,
+              "baseline": 9.266666666666667,
+              "acceleration": -7.502569373072982
+            },
+            {
+              "source": "hackernews",
+              "value": 3.0,
+              "baseline": 2.3333333333333335,
+              "acceleration": 28.571428571428566
+            },
+            {
+              "source": "youtube",
+              "value": 420214.0,
+              "baseline": 43176.46666666667,
+              "acceleration": 873.2477723204152
+            },
+            {
+              "source": "reddit",
+              "value": 125506.0,
+              "baseline": 98954.5,
+              "acceleration": 26.832028861749592
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-02",
+      "trends": [
+        {
+          "keyword": "prop trading",
+          "score": 28.0,
+          "acceleration": 628.0,
+          "sources": 4,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "IBKR"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 290.2857142857143,
+              "baseline": 282.53333333333336,
+              "acceleration": 2.743881884986167
+            },
+            {
+              "source": "hackernews",
+              "value": 21.0,
+              "baseline": 0.9333333333333333,
+              "acceleration": 2150.0
+            },
+            {
+              "source": "youtube",
+              "value": 67317.0,
+              "baseline": 21893.666666666668,
+              "acceleration": 207.4724806260562
+            },
+            {
+              "source": "reddit",
+              "value": 7606.0,
+              "baseline": 3020.0,
+              "acceleration": 151.8543046357616
+            }
+          ]
+        },
+        {
+          "keyword": "day trading",
+          "score": 22.0,
+          "acceleration": 691.6,
+          "sources": 4,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 364.14285714285717,
+              "baseline": 360.8333333333333,
+              "acceleration": 0.9171890465193125
+            },
+            {
+              "source": "hackernews",
+              "value": 60.0,
+              "baseline": 6.066666666666666,
+              "acceleration": 889.0109890109891
+            },
+            {
+              "source": "youtube",
+              "value": 323415.0,
+              "baseline": 16184.0,
+              "acceleration": 1898.362580326248
+            },
+            {
+              "source": "reddit",
+              "value": 72616.0,
+              "baseline": 92776.25,
+              "acceleration": -21.729968607267487
+            }
+          ]
+        },
+        {
+          "keyword": "Claude AI",
+          "score": 21.3,
+          "acceleration": 159.8,
+          "sources": 5,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 4.0,
+              "baseline": 1.3444444444444446,
+              "acceleration": 197.5206611570248
+            },
+            {
+              "source": "wikipedia",
+              "value": 16049.57142857143,
+              "baseline": 9207.333333333334,
+              "acceleration": 74.31291827425343
+            },
+            {
+              "source": "hackernews",
+              "value": 282.0,
+              "baseline": 157.96666666666667,
+              "acceleration": 78.51867482591264
+            },
+            {
+              "source": "youtube",
+              "value": 54565.0,
+              "baseline": 14339.033333333335,
+              "acceleration": 280.53471758905175
+            },
+            {
+              "source": "reddit",
+              "value": 122882.0,
+              "baseline": 45843.5,
+              "acceleration": 168.04672418118162
+            }
+          ]
+        },
+        {
+          "keyword": "Claude Code",
+          "score": 19.6,
+          "acceleration": 104.2,
+          "sources": 5,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 2.0,
+              "baseline": 1.3222222222222222,
+              "acceleration": 51.26050420168068
+            },
+            {
+              "source": "wikipedia",
+              "value": 16049.57142857143,
+              "baseline": 9207.333333333334,
+              "acceleration": 74.31291827425343
+            },
+            {
+              "source": "hackernews",
+              "value": 383.0,
+              "baseline": 249.66666666666669,
+              "acceleration": 53.404539385847784
+            },
+            {
+              "source": "youtube",
+              "value": 40048.0,
+              "baseline": 13571.133333333333,
+              "acceleration": 195.09694596864915
+            },
+            {
+              "source": "reddit",
+              "value": 85988.0,
+              "baseline": 34815.25,
+              "acceleration": 146.98372121412314
+            }
+          ]
+        },
+        {
+          "keyword": "clinical trial AI",
+          "score": 16.2,
+          "acceleration": 341.1,
+          "sources": 3,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "RXRX"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 15.428571428571429,
+              "baseline": 23.9,
+              "acceleration": -35.44530783024506
+            },
+            {
+              "source": "hackernews",
+              "value": 4.0,
+              "baseline": 0.0,
+              "acceleration": 100.0
+            },
+            {
+              "source": "reddit",
+              "value": 14853.0,
+              "baseline": 1402.75,
+              "acceleration": 958.8486900730708
+            }
+          ]
+        },
+        {
+          "keyword": "AI chip",
+          "score": 16.2,
+          "acceleration": 73.0,
+          "sources": 4,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "NVDA",
+            "AMD"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 122.28571428571429,
+              "baseline": 117.43333333333334,
+              "acceleration": 4.132030331292326
+            },
+            {
+              "source": "hackernews",
+              "value": 80.0,
+              "baseline": 39.43333333333334,
+              "acceleration": 102.87404902789517
+            },
+            {
+              "source": "youtube",
+              "value": 94951.0,
+              "baseline": 41944.23333333334,
+              "acceleration": 126.37438440087512
+            },
+            {
+              "source": "reddit",
+              "value": 37705.0,
+              "baseline": 23749.25,
+              "acceleration": 58.76290830236744
+            }
+          ]
+        },
+        {
+          "keyword": "MCP protocol",
+          "score": 16.1,
+          "acceleration": 70.8,
+          "sources": 4,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 2563.285714285714,
+              "baseline": 1979.9,
+              "acceleration": 29.465413116102535
+            },
+            {
+              "source": "hackernews",
+              "value": 30.0,
+              "baseline": 16.333333333333332,
+              "acceleration": 83.67346938775512
+            },
+            {
+              "source": "youtube",
+              "value": 20409.0,
+              "baseline": 13835.033333333333,
+              "acceleration": 47.51681118705894
+            },
+            {
+              "source": "reddit",
+              "value": 4828.0,
+              "baseline": 2169.0,
+              "acceleration": 122.59105578607654
+            }
+          ]
+        },
+        {
+          "keyword": "ChatGPT",
+          "score": 16.1,
+          "acceleration": 203.1,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "MSFT"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 89.0,
+              "baseline": 76.58888888888889,
+              "acceleration": 16.20484549543015
+            },
+            {
+              "source": "wikipedia",
+              "value": 82869.85714285714,
+              "baseline": 102131.4,
+              "acceleration": -18.859569982535096
+            },
+            {
+              "source": "hackernews",
+              "value": 103.0,
+              "baseline": 116.9,
+              "acceleration": -11.890504704875966
+            },
+            {
+              "source": "youtube",
+              "value": 144835.0,
+              "baseline": 17047.333333333332,
+              "acceleration": 749.6050213132064
+            },
+            {
+              "source": "reddit",
+              "value": 547961.0,
+              "baseline": 144098.25,
+              "acceleration": 280.2690178402583
+            }
+          ]
+        },
+        {
+          "keyword": "text to video AI",
+          "score": 15.9,
+          "acceleration": 64.9,
+          "sources": 4,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [
+            "GOOGL",
+            "META"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 531.5714285714286,
+              "baseline": 414.2,
+              "acceleration": 28.336897289094292
+            },
+            {
+              "source": "hackernews",
+              "value": 14.0,
+              "baseline": 12.833333333333334,
+              "acceleration": 9.090909090909086
+            },
+            {
+              "source": "youtube",
+              "value": 127545.0,
+              "baseline": 43820.46666666667,
+              "acceleration": 191.06262370551354
+            },
+            {
+              "source": "reddit",
+              "value": 21807.0,
+              "baseline": 16644.75,
+              "acceleration": 31.01428378317487
+            }
+          ]
+        },
+        {
+          "keyword": "futures trading",
+          "score": 15.7,
+          "acceleration": 256.2,
+          "sources": 4,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "medium",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 8.714285714285714,
+              "baseline": 10.833333333333334,
+              "acceleration": -19.560439560439573
+            },
+            {
+              "source": "hackernews",
+              "value": 24.0,
+              "baseline": 2.8000000000000003,
+              "acceleration": 757.142857142857
+            },
+            {
+              "source": "youtube",
+              "value": 59316.0,
+              "baseline": 13813.1,
+              "acceleration": 329.41845060124086
+            },
+            {
+              "source": "reddit",
+              "value": 26416.0,
+              "baseline": 45576.0,
+              "acceleration": -42.03967000175531
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-03-01",
+      "trends": [
+        {
+          "keyword": "prop trading",
+          "score": 23.8,
+          "acceleration": 478.1,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "IBKR"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 1.0,
+              "baseline": 1.7666666666666666,
+              "acceleration": -43.39622641509433
+            },
+            {
+              "source": "wikipedia",
+              "value": 290.2857142857143,
+              "baseline": 282.53333333333336,
+              "acceleration": 2.743881884986167
+            },
+            {
+              "source": "hackernews",
+              "value": 15.0,
+              "baseline": 0.7000000000000001,
+              "acceleration": 2042.8571428571427
+            },
+            {
+              "source": "youtube",
+              "value": 67156.0,
+              "baseline": 21580.066666666666,
+              "acceleration": 211.19459006923057
+            },
+            {
+              "source": "reddit",
+              "value": 8342.0,
+              "baseline": 3012.25,
+              "acceleration": 176.93584529836502
+            }
+          ]
+        },
+        {
+          "keyword": "day trading",
+          "score": 22.5,
+          "acceleration": 511.0,
+          "sources": 4,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 364.14285714285717,
+              "baseline": 360.8333333333333,
+              "acceleration": 0.9171890465193125
+            },
+            {
+              "source": "hackernews",
+              "value": 47.0,
+              "baseline": 17.733333333333334,
+              "acceleration": 165.03759398496237
+            },
+            {
+              "source": "youtube",
+              "value": 338731.0,
+              "baseline": 16299.033333333335,
+              "acceleration": 1978.2275431467306
+            },
+            {
+              "source": "reddit",
+              "value": 0.0,
+              "baseline": 93519.75,
+              "acceleration": -100.0
+            }
+          ]
+        },
+        {
+          "keyword": "pet industry",
+          "score": 21.0,
+          "acceleration": 935.6,
+          "sources": 3,
+          "direction": "mixed",
+          "phase": "re-accelerating",
+          "conviction": "high",
+          "tickers": [
+            "WOOF",
+            "CHWY"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 22.0,
+              "baseline": 32.1,
+              "acceleration": -31.464174454828665
+            },
+            {
+              "source": "wikipedia",
+              "value": 22.571428571428573,
+              "baseline": 58.766666666666666,
+              "acceleration": -61.591443156956494
+            },
+            {
+              "source": "hackernews",
+              "value": 7.0,
+              "baseline": 0.23333333333333334,
+              "acceleration": 2900.0
+            }
+          ]
+        },
+        {
+          "keyword": "cord cutting",
+          "score": 21.0,
+          "acceleration": 533.4,
+          "sources": 3,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "NFLX"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 1.0,
+              "baseline": 1.1,
+              "acceleration": -9.090909090909099
+            },
+            {
+              "source": "wikipedia",
+              "value": 95.57142857142857,
+              "baseline": 100.5,
+              "acceleration": -4.9040511727078915
+            },
+            {
+              "source": "hackernews",
+              "value": 8.0,
+              "baseline": 0.4666666666666667,
+              "acceleration": 1614.2857142857142
+            }
+          ]
+        },
+        {
+          "keyword": "synthetic biology",
+          "score": 20.5,
+          "acceleration": 509.8,
+          "sources": 3,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "XBI"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 2.0,
+              "baseline": 5.7,
+              "acceleration": -64.91228070175438
+            },
+            {
+              "source": "wikipedia",
+              "value": 331.7142857142857,
+              "baseline": 415.0,
+              "acceleration": -20.068846815834764
+            },
+            {
+              "source": "hackernews",
+              "value": 4.0,
+              "baseline": 0.23333333333333334,
+              "acceleration": 1614.2857142857142
+            }
+          ]
+        },
+        {
+          "keyword": "SaaS pricing",
+          "score": 17.9,
+          "acceleration": 129.8,
+          "sources": 4,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 2321.1428571428573,
+              "baseline": 1976.7333333333333,
+              "acceleration": 17.423165684607127
+            },
+            {
+              "source": "hackernews",
+              "value": 9.0,
+              "baseline": 4.9,
+              "acceleration": 83.67346938775509
+            },
+            {
+              "source": "youtube",
+              "value": 13349.0,
+              "baseline": 8978.2,
+              "acceleration": 48.68236394823015
+            },
+            {
+              "source": "reddit",
+              "value": 14633.0,
+              "baseline": 3118.25,
+              "acceleration": 369.2696223843502
+            }
+          ]
+        },
+        {
+          "keyword": "Claude AI",
+          "score": 17.5,
+          "acceleration": 132.1,
+          "sources": 4,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 16049.57142857143,
+              "baseline": 9207.333333333334,
+              "acceleration": 74.31291827425343
+            },
+            {
+              "source": "hackernews",
+              "value": 267.0,
+              "baseline": 158.20000000000002,
+              "acceleration": 68.77370417193424
+            },
+            {
+              "source": "youtube",
+              "value": 53441.0,
+              "baseline": 14400.866666666667,
+              "acceleration": 271.09572109086025
+            },
+            {
+              "source": "reddit",
+              "value": 85853.0,
+              "baseline": 40091.25,
+              "acceleration": 114.14398403641692
+            }
+          ]
+        },
+        {
+          "keyword": "Cursor AI",
+          "score": 16.8,
+          "acceleration": 92.9,
+          "sources": 4,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 2072.285714285714,
+              "baseline": 1658.2333333333333,
+              "acceleration": 24.969488468794953
+            },
+            {
+              "source": "hackernews",
+              "value": 56.0,
+              "baseline": 42.233333333333334,
+              "acceleration": 32.59668508287292
+            },
+            {
+              "source": "youtube",
+              "value": 22946.0,
+              "baseline": 11903.033333333333,
+              "acceleration": 92.7743908415502
+            },
+            {
+              "source": "reddit",
+              "value": 15033.0,
+              "baseline": 4679.25,
+              "acceleration": 221.26943420419937
+            }
+          ]
+        },
+        {
+          "keyword": "Claude Code",
+          "score": 16.7,
+          "acceleration": 105.6,
+          "sources": 4,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 16049.57142857143,
+              "baseline": 9207.333333333334,
+              "acceleration": 74.31291827425343
+            },
+            {
+              "source": "hackernews",
+              "value": 355.0,
+              "baseline": 254.33333333333334,
+              "acceleration": 39.58060288335517
+            },
+            {
+              "source": "youtube",
+              "value": 38424.0,
+              "baseline": 13541.266666666666,
+              "acceleration": 183.75484321998434
+            },
+            {
+              "source": "reddit",
+              "value": 71541.0,
+              "baseline": 31836.25,
+              "acceleration": 124.71553653461069
+            }
+          ]
+        },
+        {
+          "keyword": "large language model",
+          "score": 16.5,
+          "acceleration": 83.7,
+          "sources": 4,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "NVDA"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "wikipedia",
+              "value": 7342.285714285715,
+              "baseline": 5933.666666666667,
+              "acceleration": 23.73943678926545
+            },
+            {
+              "source": "hackernews",
+              "value": 19.0,
+              "baseline": 12.366666666666667,
+              "acceleration": 53.638814016172496
+            },
+            {
+              "source": "youtube",
+              "value": 67489.0,
+              "baseline": 40787.13333333333,
+              "acceleration": 65.46639708274016
+            },
+            {
+              "source": "reddit",
+              "value": 29751.0,
+              "baseline": 10185.75,
+              "acceleration": 192.08452985788972
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-02-28",
+      "trends": [
+        {
+          "keyword": "clinical trial AI",
+          "score": 26.0,
+          "acceleration": 665.2,
+          "sources": 4,
+          "direction": "",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "RXRX"
+          ],
+          "is_novel": true,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 4.0,
+              "baseline": 15.728260869565217,
+              "acceleration": -74.56807187284036
+            },
+            {
+              "source": "wikipedia",
+              "value": 16.0,
+              "baseline": 23.933333333333334,
+              "acceleration": -33.147632311977716
+            },
+            {
+              "source": "hackernews",
+              "value": 5.0,
+              "baseline": 0.23333333333333334,
+              "acceleration": 2042.8571428571427
+            },
+            {
+              "source": "reddit",
+              "value": 12087.0,
+              "baseline": 1464.0,
+              "acceleration": 725.6147540983607
+            }
+          ]
+        },
+        {
+          "keyword": "food prices",
+          "score": 26.0,
+          "acceleration": 755.6,
+          "sources": 4,
+          "direction": "",
+          "phase": "plateauing",
+          "conviction": "high",
+          "tickers": [
+            "DBA"
+          ],
+          "is_novel": true,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 27.0,
+              "baseline": 66.31521739130434,
+              "acceleration": -59.28536305523684
+            },
+            {
+              "source": "wikipedia",
+              "value": 52.285714285714285,
+              "baseline": 74.83333333333333,
+              "acceleration": -30.130448615972
+            },
+            {
+              "source": "hackernews",
+              "value": 15.0,
+              "baseline": 0.4666666666666667,
+              "acceleration": 3114.285714285714
+            },
+            {
+              "source": "reddit",
+              "value": 63227.0,
+              "baseline": 64774.0,
+              "acceleration": -2.388303949115386
+            }
+          ]
+        },
+        {
+          "keyword": "clinical trial AI",
+          "score": 26.0,
+          "acceleration": 665.2,
+          "sources": 4,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "RXRX"
+          ],
+          "is_novel": true,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 4.0,
+              "baseline": 15.728260869565217,
+              "acceleration": -74.56807187284036
+            },
+            {
+              "source": "wikipedia",
+              "value": 16.0,
+              "baseline": 23.933333333333334,
+              "acceleration": -33.147632311977716
+            },
+            {
+              "source": "hackernews",
+              "value": 5.0,
+              "baseline": 0.23333333333333334,
+              "acceleration": 2042.8571428571427
+            },
+            {
+              "source": "reddit",
+              "value": 12087.0,
+              "baseline": 1464.0,
+              "acceleration": 725.6147540983607
+            }
+          ]
+        },
+        {
+          "keyword": "food prices",
+          "score": 26.0,
+          "acceleration": 755.6,
+          "sources": 4,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "DBA"
+          ],
+          "is_novel": true,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 27.0,
+              "baseline": 66.31521739130434,
+              "acceleration": -59.28536305523684
+            },
+            {
+              "source": "wikipedia",
+              "value": 52.285714285714285,
+              "baseline": 74.83333333333333,
+              "acceleration": -30.130448615972
+            },
+            {
+              "source": "hackernews",
+              "value": 15.0,
+              "baseline": 0.4666666666666667,
+              "acceleration": 3114.285714285714
+            },
+            {
+              "source": "reddit",
+              "value": 63227.0,
+              "baseline": 64774.0,
+              "acceleration": -2.388303949115386
+            }
+          ]
+        },
+        {
+          "keyword": "housing shortage",
+          "score": 24.0,
+          "acceleration": 651.2,
+          "sources": 3,
+          "direction": "",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "XHB"
+          ],
+          "is_novel": true,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 0.0,
+              "baseline": 0.9565217391304348,
+              "acceleration": -100.0
+            },
+            {
+              "source": "wikipedia",
+              "value": 11.428571428571429,
+              "baseline": 10.333333333333334,
+              "acceleration": 10.59907834101382
+            },
+            {
+              "source": "hackernews",
+              "value": 15.0,
+              "baseline": 0.7000000000000001,
+              "acceleration": 2042.8571428571427
+            }
+          ]
+        },
+        {
+          "keyword": "housing shortage",
+          "score": 24.0,
+          "acceleration": 651.2,
+          "sources": 3,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "XHB"
+          ],
+          "is_novel": true,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 0.0,
+              "baseline": 0.9565217391304348,
+              "acceleration": -100.0
+            },
+            {
+              "source": "wikipedia",
+              "value": 11.428571428571429,
+              "baseline": 10.333333333333334,
+              "acceleration": 10.59907834101382
+            },
+            {
+              "source": "hackernews",
+              "value": 15.0,
+              "baseline": 0.7000000000000001,
+              "acceleration": 2042.8571428571427
+            }
+          ]
+        },
+        {
+          "keyword": "day trading",
+          "score": 22.7,
+          "acceleration": 424.5,
+          "sources": 5,
+          "direction": "",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 33.0,
+              "baseline": 65.47826086956522,
+              "acceleration": -49.60159362549801
+            },
+            {
+              "source": "wikipedia",
+              "value": 381.14285714285717,
+              "baseline": 360.4,
+              "acceleration": 5.755509751070253
+            },
+            {
+              "source": "hackernews",
+              "value": 68.0,
+              "baseline": 19.133333333333333,
+              "acceleration": 255.40069686411152
+            },
+            {
+              "source": "youtube",
+              "value": 336367.0,
+              "baseline": 16455.600000000002,
+              "acceleration": 1944.0883346702642
+            },
+            {
+              "source": "reddit",
+              "value": 64396.0,
+              "baseline": 96101.75,
+              "acceleration": -32.99185498703198
+            }
+          ]
+        },
+        {
+          "keyword": "day trading",
+          "score": 22.7,
+          "acceleration": 424.5,
+          "sources": 5,
+          "direction": "mixed",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 33.0,
+              "baseline": 65.47826086956522,
+              "acceleration": -49.60159362549801
+            },
+            {
+              "source": "wikipedia",
+              "value": 381.14285714285717,
+              "baseline": 360.4,
+              "acceleration": 5.755509751070253
+            },
+            {
+              "source": "hackernews",
+              "value": 68.0,
+              "baseline": 19.133333333333333,
+              "acceleration": 255.40069686411152
+            },
+            {
+              "source": "youtube",
+              "value": 336367.0,
+              "baseline": 16455.600000000002,
+              "acceleration": 1944.0883346702642
+            },
+            {
+              "source": "reddit",
+              "value": 64396.0,
+              "baseline": 96101.75,
+              "acceleration": -32.99185498703198
+            }
+          ]
+        },
+        {
+          "keyword": "Claude AI",
+          "score": 21.0,
+          "acceleration": 115.3,
+          "sources": 5,
+          "direction": "",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 3.0,
+              "baseline": 1.2934782608695652,
+              "acceleration": 131.9327731092437
+            },
+            {
+              "source": "wikipedia",
+              "value": 13845.42857142857,
+              "baseline": 9109.733333333334,
+              "acceleration": 51.98500400408981
+            },
+            {
+              "source": "hackernews",
+              "value": 261.0,
+              "baseline": 155.4,
+              "acceleration": 67.95366795366795
+            },
+            {
+              "source": "youtube",
+              "value": 53328.0,
+              "baseline": 14440.066666666668,
+              "acceleration": 269.3057742115687
+            },
+            {
+              "source": "reddit",
+              "value": 53553.0,
+              "baseline": 34518.75,
+              "acceleration": 55.14177077675176
+            }
+          ]
+        },
+        {
+          "keyword": "Claude AI",
+          "score": 21.0,
+          "acceleration": 115.3,
+          "sources": 5,
+          "direction": "rising",
+          "phase": "emerging",
+          "conviction": "high",
+          "tickers": [
+            "GOOGL"
+          ],
+          "is_novel": false,
+          "source_details": [
+            {
+              "source": "google_trends",
+              "value": 3.0,
+              "baseline": 1.2934782608695652,
+              "acceleration": 131.9327731092437
+            },
+            {
+              "source": "wikipedia",
+              "value": 13845.42857142857,
+              "baseline": 9109.733333333334,
+              "acceleration": 51.98500400408981
+            },
+            {
+              "source": "hackernews",
+              "value": 261.0,
+              "baseline": 155.4,
+              "acceleration": 67.95366795366795
+            },
+            {
+              "source": "youtube",
+              "value": 53328.0,
+              "baseline": 14440.066666666668,
+              "acceleration": 269.3057742115687
+            },
+            {
+              "source": "reddit",
+              "value": 53553.0,
+              "baseline": 34518.75,
+              "acceleration": 55.14177077675176
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
