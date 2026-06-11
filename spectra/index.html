@@ -23,7 +23,6 @@
     --red: #ef4444;
     --red-bg: rgba(239,68,68,0.12);
     --orange: #f97316;
-    --orange-bg: rgba(249,115,22,0.12);
     --blue: #3b82f6;
     --blue-bg: rgba(59,130,246,0.12);
   }
@@ -70,7 +69,17 @@
   #dashboard { display: none; }
 
   .container {
-    max-width: 1000px; margin: 0 auto; padding: 24px 20px;
+    max-width: 1200px; margin: 0 auto; padding: 24px 20px;
+  }
+
+  /* STALE DATA BANNER */
+  #staleBanner {
+    display: none;
+    background: #b91c1c; color: #ffffff;
+    font-weight: 700; font-size: 15px;
+    text-align: center; padding: 12px 16px;
+    border-radius: 8px; margin-bottom: 20px;
+    letter-spacing: 0.5px;
   }
 
   /* HEADER */
@@ -99,72 +108,152 @@
     letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
   }
 
-  /* REGIME SCORE */
-  .regime-header {
-    display: flex; align-items: center; gap: 16px; margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-  .regime-badge {
-    display: inline-block; padding: 6px 16px; border-radius: 6px;
-    font-size: 14px; font-weight: 700; letter-spacing: 1px;
-  }
-  .regime-badge.risk-off { background: var(--red-bg); color: var(--red); }
-  .regime-badge.risk-on { background: var(--green-bg); color: var(--green); }
-  .regime-badge.neutral { background: var(--yellow-bg); color: var(--yellow); }
+  /* WEEK NAV */
+  .week-nav { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 12px 0 4px; }
+  .week-nav button { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: var(--text); padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 14px; transition: background 0.2s; }
+  .week-nav button:hover { background: rgba(255,255,255,0.15); }
+  .week-nav button:disabled { opacity: 0.3; cursor: default; }
+  .week-nav .week-label { font-size: 14px; color: var(--text-muted); min-width: 200px; text-align: center; }
+  .week-nav .week-label .current-badge { font-size: 11px; background: var(--accent); color: #0d1117; padding: 2px 6px; border-radius: 3px; margin-left: 8px; font-weight: 600; }
 
-  .severity-bar {
-    display: flex; gap: 3px; align-items: center;
+  /* HEATMAP */
+  .heatmap-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
-  .severity-bar .block {
-    width: 24px; height: 16px; border-radius: 3px;
-    background: var(--border); transition: background 0.3s;
+  .heatmap-table {
+    border-collapse: collapse;
+    font-size: 12px;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    white-space: nowrap;
   }
-  .severity-bar .block.filled.low { background: var(--green); }
-  .severity-bar .block.filled.mid { background: var(--yellow); }
-  .severity-bar .block.filled.high { background: var(--orange); }
-  .severity-bar .block.filled.extreme { background: var(--red); }
-  .severity-label {
-    font-size: 14px; font-weight: 600; margin-left: 8px; color: var(--text-dim);
+  .heatmap-table th {
+    padding: 4px 6px;
+    font-weight: 500;
+    font-size: 10px;
+    color: var(--text-muted);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
   }
+  .heatmap-table th.date-header {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    height: 70px;
+    vertical-align: bottom;
+    padding: 4px 2px;
+    letter-spacing: 0;
+  }
+  .heatmap-table th.asset-header {
+    text-align: left;
+    padding: 4px 10px 4px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-dim);
+    position: sticky;
+    left: 0;
+    background: var(--surface);
+    z-index: 2;
+    min-width: 90px;
+  }
+  .heatmap-table td {
+    padding: 3px 4px;
+    text-align: center;
+    min-width: 36px;
+    border-bottom: 1px solid rgba(42,46,61,0.3);
+    font-weight: 600;
+    font-size: 11px;
+  }
+  .heatmap-table td.asset-name {
+    text-align: left;
+    padding: 3px 10px 3px 6px;
+    font-weight: 600;
+    color: var(--text-dim);
+    position: sticky;
+    left: 0;
+    background: var(--surface);
+    z-index: 2;
+    font-size: 11px;
+  }
+  .heatmap-table tr:hover td { background: var(--surface-hover); }
+  .heatmap-table tr:hover td.asset-name { background: var(--surface-hover); }
 
-  .regime-summary {
-    font-size: 14px; color: var(--text-dim); line-height: 1.5;
-    margin-bottom: 16px;
-  }
+  /* Heatmap cell colors */
+  .hm-flat { color: var(--text-muted); }
+  .hm-up-small { background: rgba(34,197,94,0.10); color: var(--green); }
+  .hm-up-big { background: rgba(34,197,94,0.25); color: var(--green); }
+  .hm-down-small { background: rgba(239,68,68,0.10); color: var(--red); }
+  .hm-down-big { background: rgba(239,68,68,0.25); color: var(--red); }
+  .hm-no-data { color: var(--text-muted); opacity: 0.3; }
 
-  .components-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 10px;
+  /* Bias badge next to asset name */
+  .bias-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
   }
-  .component {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 8px 12px; background: var(--bg); border-radius: 6px;
+  .bias-dot.bullish { background: var(--green); }
+  .bias-dot.bearish { background: var(--red); }
+  .bias-dot.neutral { background: var(--text-muted); }
+
+  /* MOMENTUM */
+  .momentum-tabs {
+    display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .momentum-tabs button {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
     font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s;
+    font-family: 'SF Mono', 'Fira Code', monospace;
   }
-  .component-name { color: var(--text-dim); }
-  .component-value {
-    font-weight: 600; font-family: 'SF Mono', 'Fira Code', monospace;
+  .momentum-tabs button:hover { background: rgba(255,255,255,0.12); }
+  .momentum-tabs button.active {
+    background: var(--accent);
+    color: #0d1117;
+    border-color: var(--accent);
   }
-  .component-value.positive { color: var(--green); }
-  .component-value.negative { color: var(--red); }
-  .component-value.zero { color: var(--text-muted); }
 
-  /* TABLES */
-  table {
+  .momentum-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .momentum-panel h3 {
+    font-size: 12px; font-weight: 600; color: var(--text-muted);
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .momentum-panel h3.gainers { color: var(--green); }
+  .momentum-panel h3.losers { color: var(--red); }
+
+  .momentum-table {
     width: 100%; border-collapse: collapse; font-size: 13px;
   }
-  th {
-    text-align: left; padding: 8px 10px; color: var(--text-muted);
-    font-weight: 500; font-size: 11px; letter-spacing: 1px;
+  .momentum-table th {
+    text-align: left; padding: 6px 8px; color: var(--text-muted);
+    font-weight: 500; font-size: 11px; letter-spacing: 0.5px;
     text-transform: uppercase; border-bottom: 1px solid var(--border);
   }
-  td {
-    padding: 8px 10px; border-bottom: 1px solid rgba(42,46,61,0.5);
+  .momentum-table td {
+    padding: 6px 8px; border-bottom: 1px solid rgba(42,46,61,0.5);
     color: var(--text-dim);
   }
-  tr:last-child td { border-bottom: none; }
+  .momentum-table tr:last-child td { border-bottom: none; }
 
-  /* BADGES */
+  .ticker {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px;
+    font-weight: 600; background: var(--blue-bg); color: var(--accent);
+  }
   .badge {
     display: inline-block; padding: 2px 8px; border-radius: 4px;
     font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
@@ -172,31 +261,14 @@
   .badge-bullish { background: var(--green-bg); color: var(--green); }
   .badge-bearish { background: var(--red-bg); color: var(--red); }
   .badge-neutral { background: rgba(107,114,128,0.15); color: var(--text-muted); }
-  .badge-high { background: var(--red-bg); color: var(--red); }
-  .badge-medium { background: var(--orange-bg); color: var(--orange); }
-  .badge-low { background: var(--blue-bg); color: var(--blue); }
 
-  .ticker {
-    display: inline-block; padding: 2px 8px; border-radius: 4px;
-    font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px;
-    font-weight: 600; background: var(--blue-bg); color: var(--accent);
-  }
-
-  /* TALLY */
-  .tally {
-    display: flex; gap: 24px; margin-bottom: 16px; flex-wrap: wrap;
-  }
-  .tally-item {
-    display: flex; align-items: center; gap: 8px;
-  }
-  .tally-count {
-    font-size: 24px; font-weight: 700;
+  .delta-val {
     font-family: 'SF Mono', 'Fira Code', monospace;
+    font-weight: 700; font-size: 13px;
   }
-  .tally-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-  .tally-bullish .tally-count { color: var(--green); }
-  .tally-bearish .tally-count { color: var(--red); }
-  .tally-neutral .tally-count { color: var(--text-muted); }
+  .delta-val.positive { color: var(--green); }
+  .delta-val.negative { color: var(--red); }
+  .delta-val.zero { color: var(--text-muted); }
 
   /* EMPTY STATE */
   .empty {
@@ -216,11 +288,9 @@
     .container { padding: 16px 12px; }
     .section { padding: 14px; }
     .header h1 { font-size: 22px; }
-    .components-grid { grid-template-columns: 1fr; }
-    .tally { gap: 16px; }
-    .tally-count { font-size: 20px; }
-    th, td { padding: 6px 6px; font-size: 12px; }
-    .hide-mobile { display: none; }
+    .momentum-grid { grid-template-columns: 1fr; }
+    .momentum-table th, .momentum-table td { padding: 5px 6px; font-size: 12px; }
+    .heatmap-table th.date-header { height: 50px; }
   }
 </style>
 </head>
@@ -229,7 +299,7 @@
 <!-- PASSWORD GATE -->
 <div id="passwordGate">
   <div class="gate-title">SPECTRA</div>
-  <div class="gate-sub">Macro Intelligence Platform</div>
+  <div class="gate-sub">EdgeFinder Intelligence</div>
   <input type="password" id="gateInput" placeholder="Access code" autofocus>
   <div class="gate-error" id="gateError">Incorrect</div>
 </div>
@@ -241,51 +311,32 @@
     <!-- HEADER -->
     <div class="header">
       <h1>SPECTRA</h1>
-      <div class="subtitle">Macro Intelligence Dashboard</div>
+      <div class="subtitle">EdgeFinder Intelligence Dashboard</div>
       <div class="updated" id="lastUpdated"></div>
-    </div>
-
-    <!-- REGIME SCORE -->
-    <div class="section" id="regimeSection">
-      <div class="section-title">Regime Score</div>
-      <div class="regime-header">
-        <div id="regimeBadge" class="regime-badge"></div>
-        <div class="severity-bar" id="severityBar"></div>
-        <span class="severity-label" id="severityLabel"></span>
+      <div class="week-nav" id="weekNav" style="display:none">
+        <button id="prevWeek" title="Previous week">&larr;</button>
+        <div class="week-label" id="weekLabel"></div>
+        <button id="nextWeek" title="Next week">&rarr;</button>
       </div>
-      <div class="regime-summary" id="regimeSummary"></div>
-      <div class="components-grid" id="componentsGrid"></div>
     </div>
 
-    <!-- EDGEFINDER -->
-    <div class="section" id="edgefinderSection">
-      <div class="section-title">EdgeFinder Summary</div>
-      <div class="tally" id="efTally"></div>
-      <div id="efShifts"></div>
+    <!-- MOMENTUM LEADERS -->
+    <div class="section" id="momentumSection">
+      <div class="section-title">Momentum Leaders</div>
+      <div class="momentum-tabs" id="momentumTabs">
+        <button class="tab" data-window="1">1D</button>
+        <button class="tab active" data-window="3">3D</button>
+        <button class="tab" data-window="5">5D</button>
+        <button class="tab" data-window="7">7D</button>
+        <button class="tab" data-window="14">14D</button>
+      </div>
+      <div id="momentumContent"></div>
     </div>
 
-    <!-- ECONOMIC CALENDAR -->
-    <div class="section" id="econSection">
-      <div class="section-title">Economic Calendar</div>
-      <div id="econContent"></div>
-    </div>
-
-    <!-- EARNINGS WATCH -->
-    <div class="section" id="earningsSection">
-      <div class="section-title">Earnings Watch</div>
-      <div id="earningsContent"></div>
-    </div>
-
-    <!-- NEWS DIGEST -->
-    <div class="section" id="newsSection">
-      <div class="section-title">News Digest</div>
-      <div id="newsContent"></div>
-    </div>
-
-    <!-- PINNED INTEL -->
-    <div class="section" id="intelSection">
-      <div class="section-title">Pinned Intel</div>
-      <div id="intelContent"></div>
+    <!-- DAILY SCORE HEATMAP -->
+    <div class="section" id="heatmapSection">
+      <div class="section-title">Daily Score Heatmap</div>
+      <div class="heatmap-wrapper" id="heatmapWrapper"></div>
     </div>
 
     <!-- FRESHNESS FOOTER -->
@@ -305,8 +356,16 @@ function esc(s) {
 
 function formatDate(s) {
   if (!s) return '-';
-  var d = new Date(s);
+  var ds = (s.length === 10) ? s + 'T12:00:00' : s;
+  var d = new Date(ds);
   return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function formatShortDate(s) {
+  if (!s) return '-';
+  var ds = s + 'T12:00:00';
+  var d = new Date(ds);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
 function formatDateTime(s) {
@@ -324,27 +383,30 @@ function biasClass(b) {
   return 'neutral';
 }
 
-function impactClass(i) {
-  if (!i) return 'low';
-  return i.toLowerCase();
-}
-
 // -- Password Gate --
 var gate = document.getElementById('passwordGate');
 var dashboard = document.getElementById('dashboard');
 var gateInput = document.getElementById('gateInput');
 var gateError = document.getElementById('gateError');
 
+function unlockDashboard() {
+  gate.style.display = 'none';
+  dashboard.style.display = 'block';
+  loadDashboard();
+  initWeekNav();
+}
+
+if (localStorage.getItem('spectra_auth') === 'true') {
+  unlockDashboard();
+}
+
 gateInput.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
     if (gateInput.value === 'spectra') {
+      localStorage.setItem('spectra_auth', 'true');
       gate.style.transition = 'opacity 0.4s';
       gate.style.opacity = '0';
-      setTimeout(function() {
-        gate.style.display = 'none';
-        dashboard.style.display = 'block';
-        loadDashboard();
-      }, 400);
+      setTimeout(unlockDashboard, 400);
     } else {
       gateError.style.opacity = '1';
       gateInput.value = '';
@@ -353,245 +415,187 @@ gateInput.addEventListener('keydown', function(e) {
   }
 });
 
+// -- Global data reference for momentum tab switching --
+var currentData = null;
+var activeWindow = 3;
+
 // -- Render Functions --
-function renderRegime(data) {
-  var rs = data.regime_score;
-  if (!rs) {
-    document.getElementById('regimeSection').querySelector('.section-title').insertAdjacentHTML(
-      'afterend', '<div class="empty">No regime score available</div>');
+
+function renderHeatmap(data) {
+  var container = document.getElementById('heatmapWrapper');
+  var hm = data.heatmap;
+
+  if (!hm || !hm.dates || hm.dates.length === 0) {
+    container.innerHTML = '<div class="empty">No heatmap data available</div>';
     return;
   }
 
-  // Badge
-  var badge = document.getElementById('regimeBadge');
-  var reading = rs.reading || 'neutral';
-  var readingLabel = reading.replace(/_/g, '-').toUpperCase();
-  var badgeClass = reading.indexOf('off') >= 0 ? 'risk-off' : reading.indexOf('on') >= 0 ? 'risk-on' : 'neutral';
-  badge.textContent = readingLabel;
-  badge.className = 'regime-badge ' + badgeClass;
+  var dates = hm.dates;
+  var assets = hm.assets;
+  var scores = hm.scores;
+  var deltas = hm.deltas;
+  var biases = hm.biases || {};
 
-  // Severity bar
-  var severity = rs.severity || 5;
-  var barHtml = '';
-  for (var i = 1; i <= 10; i++) {
-    var filled = i <= severity;
-    var color = i <= 3 ? 'low' : i <= 5 ? 'mid' : i <= 7 ? 'high' : 'extreme';
-    barHtml += '<div class="block' + (filled ? ' filled ' + color : '') + '"></div>';
+  var html = '<table class="heatmap-table"><thead><tr>';
+  html += '<th class="asset-header">Asset</th>';
+  for (var i = 0; i < dates.length; i++) {
+    html += '<th class="date-header">' + formatShortDate(dates[i]) + '</th>';
   }
-  document.getElementById('severityBar').innerHTML = barHtml;
-  document.getElementById('severityLabel').textContent = severity + ' / 10';
+  html += '</tr></thead><tbody>';
 
-  // Summary
-  document.getElementById('regimeSummary').textContent = rs.summary || '';
+  for (var a = 0; a < assets.length; a++) {
+    var sym = assets[a];
+    var bc = biasClass(biases[sym] || '');
+    html += '<tr>';
+    html += '<td class="asset-name"><span class="bias-dot ' + bc + '"></span>' + esc(sym) + '</td>';
 
-  // Components
-  var grid = document.getElementById('componentsGrid');
-  var comps = rs.components || [];
-  var compHtml = '';
-  comps.forEach(function(c) {
-    var val = c.value || 0;
-    var weighted = (val * (c.weight || 0)).toFixed(3);
-    var cls = val > 0.01 ? 'positive' : val < -0.01 ? 'negative' : 'zero';
-    var name = (c.name || '').replace(/_/g, ' ');
-    compHtml += '<div class="component">' +
-      '<span class="component-name">' + esc(name) + ' (' + Math.round((c.weight || 0) * 100) + '%)</span>' +
-      '<span class="component-value ' + cls + '">' + (val >= 0 ? '+' : '') + val.toFixed(3) + '</span>' +
-      '</div>';
-  });
-  grid.innerHTML = compHtml;
-}
+    var symScores = scores[sym] || {};
+    var symDeltas = deltas[sym] || {};
 
-function renderEdgeFinder(data) {
-  var shifts = data.edgefinder_shifts || [];
+    for (var d = 0; d < dates.length; d++) {
+      var dt = dates[d];
+      var score = symScores[dt];
+      var delta = symDeltas[dt];
+      var cellClass = 'hm-flat';
+      var cellText = '';
 
-  // We don't have full snapshot list in export, but we have shifts
-  // Show shifts table
-  var container = document.getElementById('efShifts');
+      if (score == null) {
+        cellClass = 'hm-no-data';
+        cellText = '\u2014';
+      } else {
+        cellText = (score >= 0 ? '+' : '') + score;
+        if (delta == null || delta === 0) {
+          cellClass = 'hm-flat';
+        } else if (delta >= 3) {
+          cellClass = 'hm-up-big';
+        } else if (delta >= 1) {
+          cellClass = 'hm-up-small';
+        } else if (delta <= -3) {
+          cellClass = 'hm-down-big';
+        } else if (delta <= -1) {
+          cellClass = 'hm-down-small';
+        }
+      }
 
-  if (shifts.length === 0) {
-    container.innerHTML = '<div class="empty">No EdgeFinder shifts detected</div>';
-    return;
-  }
-
-  // Count shift directions for tally
-  var bullishShifts = 0, bearishShifts = 0;
-  shifts.forEach(function(s) {
-    if ((s.score_delta || 0) > 0) bullishShifts++;
-    else if ((s.score_delta || 0) < 0) bearishShifts++;
-  });
-
-  var tallyEl = document.getElementById('efTally');
-  tallyEl.innerHTML =
-    '<div class="tally-item tally-bullish"><span class="tally-count">' + bullishShifts + '</span><span class="tally-label">Bullish Shifts</span></div>' +
-    '<div class="tally-item tally-bearish"><span class="tally-count">' + bearishShifts + '</span><span class="tally-label">Bearish Shifts</span></div>' +
-    '<div class="tally-item tally-neutral"><span class="tally-count">' + shifts.length + '</span><span class="tally-label">Total Shifts</span></div>';
-
-  var html = '<table><thead><tr>' +
-    '<th>Symbol</th><th>Type</th><th>Previous</th><th>Current</th><th>Delta</th>' +
-    '</tr></thead><tbody>';
-
-  shifts.forEach(function(s) {
-    var delta = s.score_delta || 0;
-    var deltaClass = delta > 0 ? 'positive' : delta < 0 ? 'negative' : 'zero';
-    html += '<tr>' +
-      '<td><span class="ticker">' + esc(s.symbol) + '</span></td>' +
-      '<td>' + esc((s.shift_type || '').replace(/_/g, ' ')) + '</td>' +
-      '<td><span class="badge badge-' + biasClass(s.previous_bias) + '">' + esc(s.previous_bias) + '</span> ' + (s.previous_score || 0) + '</td>' +
-      '<td><span class="badge badge-' + biasClass(s.current_bias) + '">' + esc(s.current_bias) + '</span> ' + (s.current_score || 0) + '</td>' +
-      '<td><span class="component-value ' + deltaClass + '">' + (delta >= 0 ? '+' : '') + delta + '</span></td>' +
-      '</tr>';
-  });
-
-  html += '</tbody></table>';
-  container.innerHTML = html;
-}
-
-function renderEconomic(data) {
-  var releases = data.recent_releases || [];
-  var upcoming = data.upcoming_economic || [];
-  var container = document.getElementById('econContent');
-
-  // Show upcoming first, then recent with actuals
-  var all = upcoming.concat(releases);
-
-  // Deduplicate by indicator_id + date and limit
-  var seen = {};
-  var items = [];
-  all.forEach(function(r) {
-    var key = (r.indicator_id || '') + '|' + (r.release_date || '');
-    if (!seen[key]) {
-      seen[key] = true;
-      items.push(r);
+      var title = sym + ' ' + dt + ': score ' + score + ', change ' + (delta != null ? ((delta >= 0 ? '+' : '') + delta) : 'n/a');
+      html += '<td class="' + cellClass + '" title="' + esc(title) + '">' + cellText + '</td>';
     }
-  });
+    html += '</tr>';
+  }
 
-  // Sort by date descending, high impact first
+  html += '</tbody></table>';
+  container.innerHTML = html;
+}
+
+function renderMomentum(data) {
+  currentData = data;
+  var tabs = document.querySelectorAll('#momentumTabs .tab');
+  tabs.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      tabs.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeWindow = parseInt(btn.getAttribute('data-window'));
+      renderMomentumTable();
+    });
+  });
+  renderMomentumTable();
+}
+
+function renderMomentumTable() {
+  var container = document.getElementById('momentumContent');
+  if (!currentData || !currentData.momentum || !currentData.momentum.data) {
+    container.innerHTML = '<div class="empty">No momentum data available</div>';
+    return;
+  }
+
+  var items = currentData.momentum.data.slice();
+  var deltaKey = 'delta_' + activeWindow + 'd';
+
+  // Sort by the active window's delta
   items.sort(function(a, b) {
-    var impA = a.impact === 'HIGH' ? 0 : a.impact === 'MEDIUM' ? 1 : 2;
-    var impB = b.impact === 'HIGH' ? 0 : b.impact === 'MEDIUM' ? 1 : 2;
-    if (impA !== impB) return impA - impB;
-    return (b.release_date || '').localeCompare(a.release_date || '');
+    var da = a[deltaKey]; var db = b[deltaKey];
+    if (da == null && db == null) return 0;
+    if (da == null) return 1;
+    if (db == null) return -1;
+    return db - da; // descending for gainers first
   });
 
-  // Show top 10
-  items = items.slice(0, 10);
+  // Split gainers and losers
+  var gainers = items.filter(function(m) { return m[deltaKey] != null && m[deltaKey] > 0; });
+  var losers = items.filter(function(m) { return m[deltaKey] != null && m[deltaKey] < 0; });
+  losers.sort(function(a, b) { return a[deltaKey] - b[deltaKey]; }); // most negative first
 
-  if (items.length === 0) {
-    container.innerHTML = '<div class="empty">No economic data available</div>';
-    return;
+  var html = '<div class="momentum-grid">';
+
+  // Gainers
+  html += '<div class="momentum-panel">';
+  html += '<h3 class="gainers">Gainers (' + activeWindow + 'D)</h3>';
+  if (gainers.length === 0) {
+    html += '<div class="empty">No gainers</div>';
+  } else {
+    html += buildMomentumTable(gainers.slice(0, 15), deltaKey);
   }
+  html += '</div>';
 
-  var html = '<table><thead><tr>' +
-    '<th>Date</th><th>Indicator</th><th>Impact</th>' +
-    '<th class="hide-mobile">Consensus</th><th class="hide-mobile">Actual</th><th class="hide-mobile">Surprise</th>' +
-    '</tr></thead><tbody>';
+  // Losers
+  html += '<div class="momentum-panel">';
+  html += '<h3 class="losers">Losers (' + activeWindow + 'D)</h3>';
+  if (losers.length === 0) {
+    html += '<div class="empty">No losers</div>';
+  } else {
+    html += buildMomentumTable(losers.slice(0, 15), deltaKey);
+  }
+  html += '</div>';
 
-  items.forEach(function(r) {
-    var surprise = r.surprise_delta;
-    var surpriseHtml = surprise != null
-      ? '<span class="component-value ' + (surprise > 0 ? 'positive' : surprise < 0 ? 'negative' : 'zero') + '">' +
-        (surprise >= 0 ? '+' : '') + surprise.toFixed(2) + '</span>'
-      : '-';
-
-    html += '<tr>' +
-      '<td>' + formatDate(r.release_date) + '</td>' +
-      '<td>' + esc(r.notes || r.indicator_id) + '</td>' +
-      '<td><span class="badge badge-' + impactClass(r.impact) + '">' + esc(r.impact) + '</span></td>' +
-      '<td class="hide-mobile">' + (r.consensus != null ? r.consensus : '-') + '</td>' +
-      '<td class="hide-mobile">' + (r.actual != null ? r.actual : '-') + '</td>' +
-      '<td class="hide-mobile">' + surpriseHtml + '</td>' +
-      '</tr>';
-  });
-
-  html += '</tbody></table>';
+  html += '</div>';
   container.innerHTML = html;
 }
 
-function renderEarnings(data) {
-  var earnings = data.upcoming_earnings || [];
-  var container = document.getElementById('earningsContent');
+function buildMomentumTable(items, deltaKey) {
+  var html = '<table class="momentum-table"><thead><tr>';
+  html += '<th>Symbol</th><th>Score</th><th>Bias</th><th>Delta</th>';
+  html += '</tr></thead><tbody>';
 
-  if (earnings.length === 0) {
-    container.innerHTML = '<div class="empty">No upcoming earnings</div>';
-    return;
+  for (var i = 0; i < items.length; i++) {
+    var m = items[i];
+    var delta = m[deltaKey];
+    var deltaClass = delta > 0 ? 'positive' : delta < 0 ? 'negative' : 'zero';
+    var bc = biasClass(m.current_bias || '');
+    var biasLabel = (m.current_bias || '').replace(/_/g, ' ');
+
+    html += '<tr>';
+    html += '<td><span class="ticker">' + esc(m.symbol) + '</span></td>';
+    html += '<td style="font-family:monospace;font-weight:600">' + (m.current_score >= 0 ? '+' : '') + m.current_score + '</td>';
+    html += '<td><span class="badge badge-' + bc + '">' + esc(biasLabel) + '</span></td>';
+    html += '<td><span class="delta-val ' + deltaClass + '">' + (delta >= 0 ? '+' : '') + delta + '</span></td>';
+    html += '</tr>';
   }
 
-  var html = '<table><thead><tr>' +
-    '<th>Date</th><th>Ticker</th><th class="hide-mobile">Company</th><th>Time</th><th>Consensus EPS</th>' +
-    '</tr></thead><tbody>';
-
-  earnings.slice(0, 10).forEach(function(e) {
-    html += '<tr>' +
-      '<td>' + formatDate(e.report_date) + '</td>' +
-      '<td><span class="ticker">' + esc(e.ticker) + '</span></td>' +
-      '<td class="hide-mobile">' + esc(e.company_name || '') + '</td>' +
-      '<td>' + esc(e.report_time || '-') + '</td>' +
-      '<td>' + (e.consensus_eps != null ? '$' + e.consensus_eps.toFixed(2) : '-') + '</td>' +
-      '</tr>';
-  });
-
   html += '</tbody></table>';
-  container.innerHTML = html;
+  return html;
 }
 
-function renderNews(data) {
-  var news = data.active_news || [];
-  var container = document.getElementById('newsContent');
-
-  if (news.length === 0) {
-    container.innerHTML = '<div class="empty">No recent news</div>';
-    return;
+function renderStaleBanner(data, isLive) {
+  var banner = document.getElementById('staleBanner');
+  if (!banner) {
+    banner = document.createElement('div');
+    banner.id = 'staleBanner';
+    var c = document.querySelector('.container');
+    c.insertBefore(banner, c.firstChild);
   }
-
-  // Sort by impact then date
-  news.sort(function(a, b) {
-    var impA = a.impact === 'HIGH' ? 0 : a.impact === 'MEDIUM' ? 1 : 2;
-    var impB = b.impact === 'HIGH' ? 0 : b.impact === 'MEDIUM' ? 1 : 2;
-    if (impA !== impB) return impA - impB;
-    return (b.event_date || '').localeCompare(a.event_date || '');
-  });
-
-  var html = '<table><thead><tr>' +
-    '<th>Time</th><th>Impact</th><th class="hide-mobile">Category</th><th>Headline</th>' +
-    '</tr></thead><tbody>';
-
-  news.slice(0, 10).forEach(function(n) {
-    var cat = (n.category || '').replace(/_/g, ' ');
-    html += '<tr>' +
-      '<td style="white-space:nowrap">' + formatDateTime(n.event_date) + '</td>' +
-      '<td><span class="badge badge-' + impactClass(n.impact) + '">' + esc(n.impact) + '</span></td>' +
-      '<td class="hide-mobile"><span class="badge badge-neutral">' + esc(cat) + '</span></td>' +
-      '<td>' + esc(n.headline) + '</td>' +
-      '</tr>';
-  });
-
-  html += '</tbody></table>';
-  container.innerHTML = html;
-}
-
-function renderIntel(data) {
-  var intel = data.pinned_intel || [];
-  var container = document.getElementById('intelContent');
-
-  if (intel.length === 0) {
-    container.innerHTML = '<div class="empty">No pinned intel</div>';
-    return;
+  var exported = data._meta && data._meta.exported_at;
+  if (!isLive || !exported) { banner.style.display = 'none'; return; }
+  var ageDays = (Date.now() - new Date(exported).getTime()) / 86400000;
+  // Allowance covers weekends: a Friday 3pm export is still fresh Sun/Mon morning.
+  var dow = new Date().getDay();
+  var allowance = (dow === 1) ? 3.5 : (dow === 0) ? 2.5 : 1.5;
+  if (ageDays > allowance) {
+    banner.textContent = '⚠ STALE DATA — last updated ' + formatDateTime(exported) +
+      '. The Spectra pipeline has not run; scores below are outdated.';
+    banner.style.display = 'block';
+  } else {
+    banner.style.display = 'none';
   }
-
-  var html = '<table><thead><tr>' +
-    '<th>Date</th><th>Source</th><th>Title</th>' +
-    '</tr></thead><tbody>';
-
-  intel.forEach(function(i) {
-    html += '<tr>' +
-      '<td style="white-space:nowrap">' + formatDate(i.entry_date) + '</td>' +
-      '<td>' + esc(i.source || '-') + '</td>' +
-      '<td>' + esc(i.title) + '</td>' +
-      '</tr>';
-  });
-
-  html += '</tbody></table>';
-  container.innerHTML = html;
 }
 
 function renderFreshness(data) {
@@ -599,28 +603,109 @@ function renderFreshness(data) {
   var el = document.getElementById('freshness');
   var parts = [];
   if (meta.exported_at) parts.push('Exported: ' + formatDateTime(meta.exported_at));
-  if (data.context_date) parts.push('Context Date: ' + formatDate(data.context_date));
+  if (data.context_date) parts.push('Context: ' + formatDate(data.context_date));
+  if (meta.asset_count) parts.push(meta.asset_count + ' assets');
+  if (meta.date_count) parts.push(meta.date_count + ' days');
   if (meta.spectra_version) parts.push('Spectra v' + meta.spectra_version);
   el.innerHTML = parts.map(function(p) { return '<span>' + esc(p) + '</span>'; }).join('');
 }
 
-// -- Load Dashboard --
-function loadDashboard() {
-  fetch('dashboard.json?t=' + Date.now())
+// -- Week Navigation State --
+var availableWeeks = [];
+var currentWeekIdx = -1;
+var currentWeekAnchor = 0;
+
+function getCurrentWeekId() {
+  var now = new Date();
+  var d = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  var dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  var weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  return d.getUTCFullYear() + '-W' + (weekNo < 10 ? '0' : '') + weekNo;
+}
+
+function initWeekNav() {
+  fetch('snapshots/index.json?t=' + Date.now())
     .then(function(r) { return r.json(); })
+    .then(function(manifest) {
+      availableWeeks = manifest.weeks || [];
+      availableWeeks.sort(function(a, b) { return b.id.localeCompare(a.id); });
+      var curId = getCurrentWeekId();
+      currentWeekAnchor = 0;
+      for (var i = 0; i < availableWeeks.length; i++) {
+        if (availableWeeks[i].id < curId) { currentWeekAnchor = i; break; }
+      }
+      if (availableWeeks.length > 0) {
+        document.getElementById('weekNav').style.display = 'flex';
+        updateWeekLabel();
+      }
+    })
+    .catch(function() {});
+
+  document.getElementById('prevWeek').addEventListener('click', function() {
+    var maxIdx = availableWeeks.length - 1;
+    var nextIdx = (currentWeekIdx === -1) ? currentWeekAnchor : currentWeekIdx + 1;
+    if (nextIdx <= maxIdx) {
+      currentWeekIdx = nextIdx;
+      loadWeek();
+    }
+  });
+  document.getElementById('nextWeek').addEventListener('click', function() {
+    if (currentWeekIdx > -1) {
+      if (currentWeekIdx <= currentWeekAnchor) {
+        currentWeekIdx = -1;
+      } else {
+        currentWeekIdx--;
+      }
+      loadWeek();
+    }
+  });
+}
+
+function updateWeekLabel() {
+  var label = document.getElementById('weekLabel');
+  var prevBtn = document.getElementById('prevWeek');
+  var nextBtn = document.getElementById('nextWeek');
+
+  if (currentWeekIdx === -1) {
+    label.innerHTML = 'Current Week<span class="current-badge">LIVE</span>';
+  } else {
+    var week = availableWeeks[currentWeekIdx];
+    label.innerHTML = week ? week.label : '';
+  }
+
+  nextBtn.disabled = (currentWeekIdx <= -1);
+  prevBtn.disabled = (currentWeekIdx >= availableWeeks.length - 1);
+}
+
+function loadWeek() {
+  var url = (currentWeekIdx === -1)
+    ? 'dashboard.json?t=' + Date.now()
+    : 'snapshots/' + availableWeeks[currentWeekIdx].id + '.json?t=' + Date.now();
+
+  updateWeekLabel();
+  loadDashboard(url);
+}
+
+// -- Load Dashboard --
+function loadDashboard(url) {
+  if (!url) url = 'dashboard.json?t=' + Date.now();
+
+  fetch(url)
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
     .then(function(data) {
-      // Header
       document.getElementById('lastUpdated').textContent =
         'Context: ' + formatDate(data.context_date) +
         (data._meta && data._meta.exported_at ? ' | Updated: ' + formatDateTime(data._meta.exported_at) : '');
 
-      renderRegime(data);
-      renderEdgeFinder(data);
-      renderEconomic(data);
-      renderEarnings(data);
-      renderNews(data);
-      renderIntel(data);
+      renderHeatmap(data);
+      renderMomentum(data);
       renderFreshness(data);
+      renderStaleBanner(data, url.indexOf('dashboard.json') === 0);
     })
     .catch(function(err) {
       document.querySelector('.container').innerHTML =
